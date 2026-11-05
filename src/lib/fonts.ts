@@ -1,0 +1,3 @@
+// the fonts the event themes borrow, only loaded on pages that show events
+export const themeFonts =
+	'https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Tektur:wght@400;600&family=Shantell+Sans:wght@500;700&family=Figtree:wght@400;600&family=Inter+Tight:wght@700;800&family=Geist:wght@400;600&family=Geist+Mono:wght@500&family=League+Spartan:wght@600;900&family=Space+Mono:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Fredoka:wght@500;600&family=Montserrat:wght@800&family=Archivo:wght@800&family=Germania+One&family=Hind+Madurai:wght@400;600&family=Outfit:wght@400;600;800&family=Chakra+Petch:ital,wght@1,700&display=swap';

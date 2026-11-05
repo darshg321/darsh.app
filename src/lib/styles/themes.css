@@ -1,0 +1,453 @@
+/* each event borrows the look of its own site: colours, type and texture.
+   a theme sets the variables; .ev (a card) and .themed (a whole page) use them. */
+
+/* fonts lifted from the event sites that aren't on Google Fonts; only fetched where a theme uses them */
+@font-face { font-family: 'Hells Bells'; src: url('/fonts/hells-bells.otf') format('opentype'); font-display: swap; }
+@font-face { font-family: 'Castledown'; src: url('/fonts/castledown-heavy.woff2') format('woff2'); font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi-medium.woff2') format('woff2'); font-weight: 400 500; font-display: swap; }
+@font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi-bold.woff2') format('woff2'); font-weight: 600 800; font-display: swap; }
+
+.t-plain {
+	--bg: var(--white);
+	--fg: var(--navy);
+	--accent: var(--blue);
+	--ink: #fff;
+	--panel: #fff;
+	--panel-fg: var(--navy);
+	--line: var(--navy);
+	--head: var(--mono);
+	--text: var(--body);
+	--radius: 6px;
+}
+
+/* FraserHacks 2026: a purple night in space, pixel type with a magenta glow */
+.t-fraserhacks {
+	--bg:
+		radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 51%),
+		radial-gradient(1px 1px at 64% 9%, #fff 50%, transparent 51%),
+		radial-gradient(1.5px 1.5px at 82% 42%, #ffd7ff 50%, transparent 51%),
+		radial-gradient(1px 1px at 33% 71%, #fff 50%, transparent 51%),
+		radial-gradient(1px 1px at 91% 83%, #fff 50%, transparent 51%),
+		radial-gradient(ellipse at 70% 10%, #3a1150, transparent 60%),
+		radial-gradient(ellipse at 10% 90%, #2b0d44, transparent 55%),
+		#16061f;
+	--fg: #f4e9ff;
+	--accent: #e84bff;
+	--ink: #16061f;
+	--panel: rgba(36, 12, 52, 0.82);
+	--panel-fg: #f4e9ff;
+	--line: rgba(255, 255, 255, 0.16);
+	--head: 'Pixelify Sans', var(--mono);
+	--text: 'Tektur', var(--body);
+	--radius: 14px;
+	--glow: 0 0 18px rgba(232, 75, 255, 0.75), 0 0 2px #fff;
+}
+
+/* Dayoneof: a cream scrapbook, handwritten headings, hard brown shadows */
+.t-dayoneof {
+	--bg: radial-gradient(rgba(120, 80, 30, 0.13) 1px, transparent 1.5px) 0 0 / 18px 18px, #f1e0b6;
+	--fg: #2c1d12;
+	--accent: #c8372d;
+	--ink: #fbf3df;
+	--panel: #fbf3df;
+	--panel-fg: #2c1d12;
+	--line: #2c1d12;
+	--head: 'Shantell Sans', cursive;
+	--text: 'Figtree', var(--body);
+	--radius: 10px;
+}
+
+/* Off-Script was a Waterloo Tech Week event, so it wears theirs: midnight navy, a halftone
+   Waterloo skyline, the green-to-magenta ribbon, tight grotesk caps and cyan pill buttons */
+.t-offscript {
+	--bg:
+		url('/img/e/wtw-ribbon.svg') center bottom 10% / 100% 55% no-repeat,
+		url('/img/e/wtw-skyline.webp') right bottom / auto 85% no-repeat,
+		#100f1c;
+	--fg: #fff;
+	--accent: #00bfff;
+	--ink: #100f1c;
+	--panel: rgba(16, 15, 28, 0.9);
+	--panel-fg: #eef1ff;
+	--line: rgba(146, 188, 255, 0.35);
+	--head: 'Inter Tight', 'Helvetica Neue', sans-serif;
+	--text: 'Geist', var(--body);
+	--radius: 14px;
+	--wtw: linear-gradient(90deg, #2fdd8c, #00bfff 30%, #1a56ff 50%, #8b1dff 75%, #ff0df4);
+}
+
+/* Fraser Comp Sci Club: tomato red, sky cyan, chunky Spartan caps */
+.t-csclub {
+	--bg: linear-gradient(115deg, #ef4256 0 52%, #dc2d46 52%);
+	--fg: #fff;
+	--accent: #5fcbea;
+	--ink: #13233a;
+	--panel: rgba(255, 255, 255, 0.1);
+	--panel-fg: #fff;
+	--line: #fff;
+	--head: 'League Spartan', sans-serif;
+	--text: 'Space Mono', var(--mono);
+	--radius: 4px;
+}
+
+/* Horizons Polaris: the event's own night over Toronto, a mint north star */
+.t-polaris {
+	--bg: linear-gradient(90deg, #262854 35%, rgba(38, 40, 84, 0.2) 75%), url('/img/e/polaris-bg.webp') right 0 center / 55% auto no-repeat, #262854;
+	--fg: #fff;
+	--accent: #8ef2d6;
+	--ink: #1d1f44;
+	--panel: rgba(29, 31, 68, 0.88);
+	--panel-fg: #f1f0ff;
+	--line: rgba(142, 242, 214, 0.5);
+	--head: 'Bricolage Grotesque', sans-serif;
+	--text: 'Bricolage Grotesque', var(--body);
+	--radius: 16px;
+}
+
+/* Outpost: orange checkers, white checker corners, brown buttons with mint type */
+.t-outpost {
+	--bg:
+		url('/img/e/outpost-checkcorner.svg') right -20px top -20px / 120px no-repeat,
+		repeating-conic-gradient(#fe9802 0 25%, #feab01 0 50%) 0 0 / 40px 40px;
+	--fg: #3b312f;
+	--accent: #3b312f;
+	--ink: #6ff0cf;
+	--panel: #fcf3de;
+	--panel-fg: #3b312f;
+	--line: #3b312f;
+	--head: 'Germania One', serif;
+	--text: 'Hind Madurai', var(--body);
+	--radius: 4px;
+}
+
+/* Fallout: Shenzhen's bright blue sky, clouds, the wooden frame and the hand-lettered type from their site */
+.t-fallout {
+	--bg: url('/img/e/fallout/banner.webp') center bottom -2px / 160% auto repeat-x, url('/img/e/fallout-clouds.webp') center bottom / 140% auto no-repeat, linear-gradient(#38c9ff, #8adcff);
+	--fg: #1e1613;
+	--accent: #61453a;
+	--ink: #e8d5c4;
+	--panel: #e8d5c4;
+	--panel-fg: #1e1613;
+	--line: #61453a;
+	--head: 'Hells Bells', 'Outfit', sans-serif;
+	--text: 'Outfit', var(--body);
+	--radius: 0;
+}
+
+/* Alleyway × Supercon: Hackaday's own look. flat black, the skull and wrenches, white caps, yellow links */
+.t-alleyway {
+	--bg: #1a1a1a;
+	--fg: #fff;
+	--accent: #f3bf10;
+	--ink: #1a1a1a;
+	--panel: #242424;
+	--panel-fg: #ececec;
+	--line: #fff;
+	--head: 'Montserrat', sans-serif;
+	--text: var(--body);
+	--radius: 0;
+}
+
+/* Undercity: the dark neon gate, glitchy split-colour type */
+.t-undercity {
+	--bg: linear-gradient(rgba(16, 15, 35, 0.72), rgba(16, 15, 35, 0.9)), url('/img/e/undercity-gates.webp') center / cover, #100f23;
+	--fg: #fff;
+	--accent: #ff4fdc;
+	--ink: #100f23;
+	--panel: rgba(35, 31, 86, 0.82);
+	--panel-fg: #f1ecff;
+	--line: #544fff;
+	--head: 'Chakra Petch', sans-serif;
+	--text: var(--body);
+	--radius: 2px;
+	--glow: 2px 0 #ff4fdc, -2px 0 #4fd9ff;
+}
+
+/* Hack the North: their storybook valley (clouds, glacier mountains, a row of pines, the picnic table)
+   and their own Castledown + Satoshi type */
+.t-hackthenorth {
+	--bg:
+		url('/img/e/htn/cloud.webp') right 26% top -30px / 150px auto no-repeat,
+		url('/img/e/htn/grass.webp') left bottom / auto 22px repeat-x,
+		url('/img/e/htn/tree-row.webp') right -40px bottom 6px / auto 46px no-repeat,
+		url('/img/e/htn/mountain-left.webp') right 70px bottom 30px / auto 120px no-repeat,
+		url('/img/e/htn/mountain-front.webp') right -30px bottom 24px / auto 90px no-repeat,
+		linear-gradient(#bdeefb, #a6e6f8);
+	--fg: #5a1a12;
+	--accent: #b3261e;
+	--ink: #fff;
+	--panel: #fff8ee;
+	--panel-fg: #3c1a14;
+	--line: #b3261e;
+	--head: 'Castledown', 'Fredoka', sans-serif;
+	--text: 'Satoshi', 'Fredoka', var(--body);
+	--radius: 14px;
+}
+
+/* uOttaHack: synthwave grid at night, a sunset gradient on the wordmark */
+.t-uottahack {
+	--bg:
+		linear-gradient(rgba(255, 92, 199, 0.18) 1px, transparent 1px) 0 0 / 46px 46px,
+		linear-gradient(90deg, rgba(79, 155, 255, 0.18) 1px, transparent 1px) 0 0 / 46px 46px,
+		linear-gradient(90deg, #05061a 40%, rgba(5, 6, 26, 0) 72%),
+		url('/img/e/uottahack-art.webp') right center / auto 115% no-repeat,
+		#05061a;
+	--fg: #fff;
+	--accent: #ff8fd2;
+	--ink: #05061a;
+	--panel: rgba(12, 14, 44, 0.9);
+	--panel-fg: #eef;
+	--line: #4f6bff;
+	--head: 'Archivo', sans-serif;
+	--text: var(--body);
+	--radius: 12px;
+}
+
+/* ================= event card =================
+   everything is laid out like the CS Club card: the brand colour with a diagonal split,
+   logo, a big name in the event's own type, a role chip, and an award sticker you can't miss */
+.ev {
+	position: relative;
+	display: flex;
+	text-decoration: none;
+	color: var(--fg);
+	background: var(--bg);
+	border-radius: var(--radius);
+	overflow: hidden;
+	font-family: var(--text);
+	min-height: 220px;
+	transition: translate 0.15s;
+	isolation: isolate;
+}
+.ev::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: linear-gradient(115deg, transparent 0 58%, rgba(0, 0, 0, 0.08) 58%);
+	pointer-events: none;
+}
+a.ev:hover { translate: 0 -3px; }
+.ev-body { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 24px 26px; flex: 1; min-width: 0; }
+.ev .ev-logo { height: 52px; width: auto; max-width: 70%; object-fit: contain; align-self: flex-start; margin-bottom: 4px; }
+.ev .ev-name { font: 800 30px/1.02 var(--head); }
+.ev .ev-when { font-size: 14px; opacity: 0.85; }
+.ev .ev-sum { font-size: 16px; line-height: 1.4; max-width: 46ch; }
+.ev .ev-role {
+	align-self: flex-start;
+	margin-top: auto;
+	font: 700 13px/1 var(--mono);
+	text-transform: lowercase;
+	padding: 7px 10px;
+	background: var(--accent);
+	color: var(--ink);
+	border-radius: 3px;
+}
+.ev .ev-stats { display: flex; gap: 22px; flex-wrap: wrap; margin: 6px 0 4px; }
+.ev .ev-stats span { display: flex; flex-direction: column; font-size: 13px; opacity: 0.9; }
+.ev .ev-stats b { font: 800 30px/1 var(--head); opacity: 1; }
+
+/* the wide cards ("things i run") show a photo on the right, cut on the same diagonal */
+.ev.wide { min-height: 300px; }
+.ev.wide .ev-body { padding: 28px 30px; }
+.ev.wide .ev-name { font-size: 40px; }
+.ev-cover { position: relative; width: 44%; flex-shrink: 0; clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%); }
+.ev-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* a site screenshot sits whole in a small browser window, tilted onto the card */
+.ev-cover.site { clip-path: none; align-self: center; width: 46%; aspect-ratio: 1440 / 1030; margin: 22px 24px 22px 0; rotate: 1.5deg;
+	background: #fff; border-radius: 8px; overflow: hidden; box-shadow: -6px 8px 0 rgba(0, 0, 0, 0.3); border: 2px solid rgba(0, 0, 0, 0.55); }
+.ev-cover.site img { top: 20px; height: calc(100% - 20px); object-fit: contain; object-position: top; }
+.ev-browser { position: absolute; inset: 0 0 auto; height: 20px; background: #e9e9ee; display: flex; gap: 5px; align-items: center; padding-left: 8px; }
+.ev-browser i { width: 8px; height: 8px; border-radius: 50%; background: #ff5f57; }
+.ev-browser i:nth-child(2) { background: #febc2e; }
+.ev-browser i:nth-child(3) { background: #28c840; }
+
+/* awards are a sticker slapped on the corner */
+.ev .ev-award {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	z-index: 2;
+	font: 800 15px/1.15 var(--mono);
+	max-width: 19ch;
+	text-align: center;
+	padding: 9px 12px;
+	background: #ffd23f;
+	color: #16181b;
+	border: 2px solid #16181b;
+	box-shadow: -4px 4px 0 #16181b;
+	rotate: 4deg;
+	border-radius: 3px;
+}
+.ev .ev-award b { color: #c8372d; }
+.ev:has(.ev-award) .ev-body { padding-right: 150px; }
+.ev.wide:has(.ev-award) .ev-body { padding-right: 30px; }
+
+/* ---------- per theme ---------- */
+.t-fraserhacks.ev { border: 1px solid var(--line); }
+.t-fraserhacks .ev-name, .t-fraserhacks h1 { text-shadow: var(--glow); font-weight: 700; }
+.t-fraserhacks .ev-stats b { text-shadow: var(--glow); }
+
+.t-dayoneof.ev { border: 2px solid var(--line); box-shadow: inset 0 0 0 0 transparent; }
+.t-dayoneof .ev-name { font-size: 34px; font-weight: 700; }
+.t-dayoneof .ev-role { rotate: -2deg; }
+.t-dayoneof .ev-cover.site { border-color: var(--line); box-shadow: -5px 5px 0 var(--line); }
+
+.t-offscript.ev {
+	border: 1px solid var(--line);
+	background:
+		url('/img/e/wtw-ribbon.svg') left bottom -6px / 58% 22% no-repeat,
+		linear-gradient(#100f1c 55%, rgba(16, 15, 28, 0.55)),
+		url('/img/e/wtw-skyline.webp') left bottom / auto 60% no-repeat,
+		#100f1c;
+}
+.t-offscript.wide .ev-body { padding-bottom: 54px; }
+.t-offscript.ev::before { background: none; }
+.t-offscript .ev-logo { height: 26px; opacity: 0.9; }
+.t-offscript .ev-name, .t-offscript h1 { text-transform: uppercase; letter-spacing: -0.04em; font-weight: 800; }
+.t-offscript .ev-when { font-family: 'Geist Mono', var(--mono); text-transform: uppercase; font-size: 13px; }
+.t-offscript .ev-stats b { background: var(--wtw); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.03em; }
+.t-offscript .ev-role { border-radius: 999px; padding: 8px 14px; font-family: 'Inter Tight', sans-serif; font-weight: 800; text-transform: uppercase; }
+.t-offscript .ev-cover { clip-path: none; border-left: 4px solid; border-image: var(--wtw) 1; }
+.t-offscript .ev-cover img { object-position: center 30%; }
+
+.t-csclub .ev-name, .t-csclub h1 { text-transform: uppercase; font-weight: 900; letter-spacing: -0.5px; }
+.t-csclub.ev::before { background: none; }
+.t-csclub .ev-stats b { color: var(--accent); font-weight: 900; }
+
+.t-polaris.ev { border: 2px solid var(--line); }
+.t-polaris .ev-logo { filter: invert(1) hue-rotate(180deg); }
+.t-polaris .ev-name, .t-polaris h1 { font-weight: 800; letter-spacing: -0.5px; }
+.t-polaris .ev-when { color: var(--accent); opacity: 1; }
+
+/* the wordmark already says the name, so the text version is only for screen readers */
+.t-outpost.ev .ev-name, .t-undercity.ev .ev-name, .t-fallout.ev .ev-name {
+	position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);
+}
+.t-outpost .ev-logo { height: 76px; }
+.t-polaris .ev-logo { height: 64px; }
+.t-outpost.ev { border: 3px solid var(--line); box-shadow: inset 0 -8px 0 rgba(59, 49, 47, 0.18); }
+.t-outpost .ev-name, .themed.t-outpost h1 {
+	font-weight: 400; text-transform: uppercase; letter-spacing: 1px; color: #fcf3de;
+	-webkit-text-stroke: 2px var(--line); paint-order: stroke fill; text-shadow: 3px 3px 0 var(--line);
+}
+.t-outpost .ev-role { font-family: 'Germania One', serif; font-size: 16px; font-weight: 400; text-transform: uppercase; }
+
+.t-fallout.ev { border: 7px solid #8f6a55; outline: 2px solid #3a2a22; outline-offset: -2px; padding-bottom: 40px; }
+.t-fallout.ev::after {
+	content: ''; position: absolute; inset: -7px; pointer-events: none; z-index: 1;
+	background:
+		url('/img/e/fallout-top_left.webp') left top / 60px no-repeat,
+		url('/img/e/fallout-top_right.webp') right top / 60px no-repeat,
+		url('/img/e/fallout-bottom_left.webp') left bottom / 60px no-repeat,
+		url('/img/e/fallout-bottom_right.webp') right bottom / 60px no-repeat;
+}
+.t-fallout .ev-body { margin: 14px; padding: 18px 20px; background: #e8d5c4; border: 2px solid #61453a; flex: 0 1 auto; align-self: flex-start; }
+.t-fallout .ev-logo { height: 58px; }
+.t-fallout .ev-name, .t-fallout h1 { font-weight: 400; }
+.t-fallout .ev-role { color: #e8d5c4; }
+
+.t-alleyway .ev-name, .t-alleyway h1 { text-transform: uppercase; font-weight: 800; letter-spacing: -0.5px; }
+.t-alleyway .ev-logo { height: 64px; }
+.t-alleyway .ev-when { padding-bottom: 8px; border-bottom: 3px solid #fff; align-self: stretch; opacity: 1; }
+.t-alleyway.ev::before { background: none; }
+
+.t-undercity.ev { border: 1px solid var(--line); }
+.t-undercity .ev-name, .t-undercity h1 { font-style: italic; font-weight: 700; text-transform: uppercase; text-shadow: var(--glow); }
+.t-undercity .ev-logo { height: 72px; }
+
+.t-hackthenorth.ev { border: 3px solid #fff; padding-bottom: 26px; }
+.t-hackthenorth.ev::before { background: none; }
+.t-hackthenorth .ev-name, .t-hackthenorth h1 {
+	font-weight: 800; background: linear-gradient(90deg, #8c1414, #e2462a); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.t-uottahack.ev { border: 1px solid rgba(255, 143, 210, 0.45); }
+.t-uottahack .ev-name, .t-uottahack h1 {
+	font-weight: 800; letter-spacing: -1px; background: linear-gradient(90deg, #ffd5c4, #f0a2ff 50%, #7fa6ff); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.t-plain.ev { border: 2px solid var(--navy); }
+.t-plain .ev-name { font-size: 22px; }
+
+/* ================= a whole themed page ================= */
+.themed {
+	color: var(--fg);
+	font-family: var(--text);
+}
+.themed-bg {
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	background: var(--bg);
+}
+.themed .panel {
+	background: var(--panel);
+	color: var(--panel-fg);
+	border-radius: var(--radius);
+	padding: 26px 30px;
+}
+.t-fraserhacks .panel { border: 1px solid var(--line); backdrop-filter: blur(6px); }
+.t-dayoneof .panel { border: 2px solid var(--line); box-shadow: 6px 6px 0 var(--line); }
+.t-offscript .panel { border: 1px solid var(--line); backdrop-filter: blur(4px); }
+.t-csclub .panel { border: 2px solid var(--line); }
+.t-polaris .panel { border: 1px solid var(--line); backdrop-filter: blur(6px); }
+.t-outpost .panel { border: 3px solid var(--line); box-shadow: 6px 6px 0 var(--line); }
+.t-fallout .panel { border: 6px solid #8f6a55; box-shadow: 0 0 0 2px #3a2a22, inset 0 0 0 2px #c9ad95; }
+.t-alleyway .panel { border-top: 3px solid #fff; }
+.t-undercity .panel { border: 1px solid var(--line); box-shadow: 0 0 0 1px rgba(255, 79, 220, 0.25), 0 0 40px rgba(84, 79, 255, 0.25); }
+.t-hackthenorth .panel { border: 3px solid #fff; box-shadow: 0 6px 0 rgba(140, 20, 20, 0.25); }
+.t-uottahack .panel { border: 1px solid var(--line); }
+.t-plain .panel { border: 2px solid var(--navy); }
+.themed .panel .prose a { text-decoration-color: var(--accent); }
+.t-offscript .panel .prose strong { background: var(--wtw) left bottom / 100% 3px no-repeat; padding-bottom: 1px; }
+
+/* on light event pages the white sky text on the header and footer needs to go dark */
+body:has(.themed.t-dayoneof, .themed.t-outpost, .themed.t-plain, .themed.t-hackthenorth) :is(.top a, .top nav a, .foot) {
+	color: #1a1410;
+	text-shadow: none;
+}
+
+/* a whole page needs the art to cover the screen, not sit in a corner like on the cards */
+/* Fallout: their hero, the crossing into a Shenzhen of green and blue towers, with the cream clouds along the bottom */
+.t-fallout .themed-bg {
+	background:
+		url('/img/e/fallout/banner.webp') center bottom -4px / max(1400px, 110%) auto repeat-x,
+		url('/img/e/fallout/hero.webp') center bottom / max(1676px, 100%) auto no-repeat,
+		linear-gradient(#38c9ff, #8adcff 70%);
+}
+/* Hack the North: the same valley, big. bushes up both edges, the pines and mountains along the bottom, then the table */
+.t-hackthenorth .themed-bg {
+	background:
+		url('/img/e/htn/table-edge.webp') center bottom / auto 70px repeat-x,
+		url('/img/e/htn/grass.webp') left bottom 66px / auto 34px repeat-x,
+		url('/img/e/htn/bush-dark.webp') left -60px bottom 70px / 260px auto no-repeat,
+		url('/img/e/htn/bush-light.webp') right -40px bottom 70px / 230px auto no-repeat,
+		url('/img/e/htn/tree-row.webp') center bottom 80px / auto 110px repeat-x,
+		url('/img/e/htn/mountain-left.webp') left 6% bottom 120px / auto 230px no-repeat,
+		url('/img/e/htn/mountain-front.webp') right 10% bottom 120px / auto 190px no-repeat,
+		url('/img/e/htn/bg-left.webp') left -70px top 90px / 160px auto no-repeat,
+		url('/img/e/htn/bg-right.webp') right -70px top 120px / 160px auto no-repeat,
+		url('/img/e/htn/cloud.webp') left 18% top 70px / 190px auto no-repeat,
+		url('/img/e/htn/cloud.webp') right 22% top 46% / 150px auto no-repeat,
+		linear-gradient(#bdeefb, #a6e6f8 60%);
+}
+/* their row of bushes is the divider between sections, and the projects sit on the picnic table */
+.t-hackthenorth .block { padding-top: 84px; background: url('/img/e/htn/separator.webp') center top / min(560px, 90%) auto no-repeat; }
+.t-hackthenorth .block h2 { position: relative; display: inline-block; padding-right: 40px; }
+.t-hackthenorth .block h2::after { content: ''; position: absolute; right: 0; top: -12px; width: 32px; height: 32px; background: url('/img/e/htn/sparkle.webp') center / contain no-repeat; }
+.t-hackthenorth .made { padding-bottom: 58px; background: url('/img/e/htn/table.webp') center bottom / 100% 54px no-repeat; }
+.t-polaris .themed-bg { background: linear-gradient(rgba(38, 40, 84, 0.5), rgba(38, 40, 84, 0.85)), url('/img/e/polaris-bg.webp') center bottom / cover, #262854; }
+.t-uottahack .themed-bg { background: linear-gradient(rgba(5, 6, 26, 0.6), rgba(5, 6, 26, 0.9)), url('/img/e/uottahack-art.webp') right center / auto 90% no-repeat, #05061a; }
+
+/* wordmark logos already say the name */
+.themed.t-outpost h1, .themed.t-undercity h1, .themed.t-fallout h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+/* phones: the photo on a wide card goes on top instead of beside */
+@media (max-width: 760px) {
+	.ev.wide { flex-direction: column-reverse; }
+	.ev.wide .ev-name { font-size: 32px; }
+	.ev-cover { width: auto; height: 170px; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%); }
+	.ev-cover.site { width: auto; height: auto; margin: 16px 16px 0; rotate: 0deg; }
+	.ev:has(.ev-award) .ev-body { padding-right: 26px; padding-top: 70px; }
+}

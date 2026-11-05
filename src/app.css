@@ -1,0 +1,168 @@
+/* a real sky on a clear day, and every panel is a circuit board.
+   colours are solder-mask colours a fab like JLCPCB actually sells. */
+:root {
+	--navy: #0f2742;
+	--silk: #f7f7f2;
+	--gold: #d6a542;
+
+	--green: #1e6b3d;
+	--blue: #1d4f9e;
+	--purple: #4d2b7c;
+	--red: #a92a22;
+	--yellow: #efc419;
+	--white: #f4f4ef;
+	--black: #16181b;
+
+	--mono: 'Martian Mono', ui-monospace, monospace;
+	--body: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+	--shadow: rgba(12, 45, 90, 0.28);
+	--sky-text: 0 1px 3px rgba(12, 45, 90, 0.55);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+body {
+	font: 17px/1.55 var(--body);
+	color: var(--navy);
+	background: #3b8ad6 url('/img/sky.jpg') center / cover fixed;
+	min-height: 100vh;
+}
+
+a { color: inherit; }
+img, video { display: block; max-width: 100%; }
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+::selection { background: var(--yellow); color: var(--black); }
+
+.page { max-width: 1200px; margin: 0 auto; padding: 24px 32px 48px; }
+
+/* ================= boards ================= */
+/* solder mask, silkscreen text, and four plated holes punched clean through */
+.board {
+	--mask: var(--green);
+	--ink: var(--silk);
+	--hole: 4px;
+	--ring: 8px;
+	--inset: 14px;
+	position: relative;
+	display: block;
+	color: var(--ink);
+	border-radius: 6px;
+	padding: 18px 26px 22px;
+	background:
+		radial-gradient(circle at var(--inset) var(--inset), var(--gold) var(--ring), transparent calc(var(--ring) + 0.5px)),
+		radial-gradient(circle at calc(100% - var(--inset)) var(--inset), var(--gold) var(--ring), transparent calc(var(--ring) + 0.5px)),
+		radial-gradient(circle at var(--inset) calc(100% - var(--inset)), var(--gold) var(--ring), transparent calc(var(--ring) + 0.5px)),
+		radial-gradient(circle at calc(100% - var(--inset)) calc(100% - var(--inset)), var(--gold) var(--ring), transparent calc(var(--ring) + 0.5px)),
+		var(--mask);
+	mask:
+		radial-gradient(circle at var(--inset) var(--inset), transparent var(--hole), #000 calc(var(--hole) + 0.5px)) intersect,
+		radial-gradient(circle at calc(100% - var(--inset)) var(--inset), transparent var(--hole), #000 calc(var(--hole) + 0.5px)) intersect,
+		radial-gradient(circle at var(--inset) calc(100% - var(--inset)), transparent var(--hole), #000 calc(var(--hole) + 0.5px)) intersect,
+		radial-gradient(circle at calc(100% - var(--inset)) calc(100% - var(--inset)), transparent var(--hole), #000 calc(var(--hole) + 0.5px));
+}
+.green { --mask: var(--green); }
+.blue { --mask: var(--blue); }
+.purple { --mask: var(--purple); }
+.red { --mask: var(--red); }
+.black { --mask: var(--black); }
+.yellow { --mask: var(--yellow); --ink: var(--black); }
+.white { --mask: var(--white); --ink: var(--black); }
+
+/* the sun is top right, so every board's shadow falls down and to the left.
+   the mask would clip a box-shadow, so the shadow goes on whatever holds the boards */
+.cast { filter: drop-shadow(-10px 12px 0 var(--shadow)); }
+
+.silk { font: 500 13px var(--mono); font-variation-settings: 'wdth' 87.5; }
+
+/* ================= type on the sky ================= */
+h1, h2 { color: #fff; text-shadow: var(--sky-text); }
+h1.big {
+	font: 800 120px/1 var(--mono);
+	font-variation-settings: 'wdth' 112.5;
+	letter-spacing: -4px;
+	text-shadow: -6px 7px 0 var(--shadow);
+	margin-bottom: 22px;
+}
+h1.page-title {
+	font: 800 64px/1.05 var(--mono);
+	font-variation-settings: 'wdth' 112.5;
+	letter-spacing: -2px;
+	text-shadow: -5px 6px 0 var(--shadow);
+	margin-bottom: 14px;
+}
+h2 { font: 700 26px var(--mono); }
+.on-sky {
+	color: #fff;
+	font-size: 18px;
+	text-shadow: 0 1px 2px rgba(10, 40, 80, 0.55), 0 0 12px rgba(10, 40, 80, 0.35);
+}
+.on-sky a, a.sky-link {
+	color: #fff;
+	text-decoration-color: var(--yellow);
+	text-decoration-thickness: 3px;
+	text-underline-offset: 4px;
+}
+a.sky-link { font: 600 16px var(--mono); text-shadow: var(--sky-text); }
+
+.section { margin-bottom: 64px; }
+.section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+.section-head p { color: #fff; text-shadow: var(--sky-text); max-width: 60ch; }
+
+/* ================= chips ================= */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+	font: 500 12px/1 var(--mono);
+	font-variation-settings: 'wdth' 87.5;
+	padding: 5px 8px;
+	border-radius: 3px;
+	border: 1px solid currentColor;
+	opacity: 0.9;
+	white-space: nowrap;
+}
+
+/* status: a pad on the board. filled when it's real, outlined when it's on paper */
+.status {
+	display: inline-flex; align-items: center; gap: 7px;
+	font: 600 12px/1 var(--mono);
+	font-variation-settings: 'wdth' 87.5;
+	white-space: nowrap;
+}
+.status::before {
+	content: '';
+	width: 10px; height: 10px; border-radius: 50%;
+	background: var(--gold);
+	box-shadow: 0 0 0 2px color-mix(in srgb, var(--gold) 35%, transparent);
+}
+.status.designed::before { background: transparent; border: 2px dashed var(--gold); box-shadow: none; width: 8px; height: 8px; }
+.status.assembled::before { background: linear-gradient(90deg, var(--gold) 50%, transparent 50%); border: 2px solid var(--gold); box-shadow: none; width: 8px; height: 8px; }
+.status.ongoing::before { background: #46e07c; box-shadow: 0 0 0 3px rgba(70, 224, 124, 0.35); animation: blink 1.6s ease-in-out infinite; }
+.status.demoed::before { border-radius: 2px; }
+@keyframes blink { 50% { opacity: 0.35; } }
+@media (prefers-reduced-motion: reduce) { .status.ongoing::before { animation: none; } html { scroll-behavior: auto; } }
+
+/* ================= prose inside boards ================= */
+.prose { font-size: 17px; }
+.prose p, .prose ul, .prose ol, .prose pre, .prose table, .prose blockquote { margin-bottom: 14px; }
+.prose ul, .prose ol { padding-left: 1.3em; }
+.prose h2, .prose h3, .prose h4 {
+	font: 700 19px var(--mono);
+	color: inherit; text-shadow: none;
+	margin: 26px 0 10px;
+}
+.prose h1 { font: 700 22px var(--mono); margin: 26px 0 10px; color: inherit; text-shadow: none; }
+.prose a { text-decoration-color: var(--gold); text-underline-offset: 3px; }
+.prose strong { font-weight: 700; }
+.prose code { font: 14px var(--mono); background: rgba(0, 0, 0, 0.18); padding: 1px 5px; border-radius: 3px; }
+.prose pre { background: rgba(0, 0, 0, 0.25); padding: 12px 14px; border-radius: 4px; overflow-x: auto; }
+.prose pre code { background: none; padding: 0; }
+.prose img { border-radius: 4px; margin: 10px 0; max-height: 520px; width: auto; }
+.prose table { border-collapse: collapse; font-size: 14px; display: block; overflow-x: auto; }
+.prose th, .prose td { border: 1px solid color-mix(in srgb, currentColor 30%, transparent); padding: 4px 8px; text-align: left; }
+.prose hr { border: 0; border-top: 1px dashed color-mix(in srgb, currentColor 35%, transparent); margin: 22px 0; }
+
+@media (max-width: 640px) {
+	.page { padding: 18px; }
+	h1.big { font-size: 76px; letter-spacing: -2px; }
+	h1.page-title { font-size: 42px; }
+}
