@@ -16,7 +16,7 @@ npm run check     # types
 |---|---|
 | every project, in display order (most effort / current first) | `src/lib/data/projects.ts` |
 | events i run and events i went to, each with a theme | `src/lib/data/events.ts` |
-| roles, FRC, awards, school, timeline | `src/lib/data/about.ts` |
+| roles, FRC, awards | `src/lib/data/about.ts` |
 | event themes (colours, fonts, textures borrowed from each event's site) | `src/lib/styles/themes.css` |
 | the board look | `src/app.css` |
 

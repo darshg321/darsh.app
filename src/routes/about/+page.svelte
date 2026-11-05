@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { roles, frc, awards, school, offline, timeline, contact } from '#lib/data/about.js';
+	import { roles, frc, awards, offline, contact } from '#lib/data/about.js';
 	import { md } from '#lib/md.js';
 	import { bySlug } from '#lib/data/projects.js';
 
@@ -8,14 +8,14 @@
 
 <svelte:head>
 	<title>about · darsh.app</title>
-	<meta name="description" content="about darsh: what i do, FRC 1325, awards, and everything since grade 8." />
+	<meta name="description" content="about darsh: what i do, FRC 1325, awards and the rest." />
 </svelte:head>
 
 <section class="intro">
 	<div class="cast photo-wrap">
 		<figure class="board white photo">
-			<img src="/img/me/darsh.webp" alt="me at FraserHacks, in the event hoodie" />
-			<figcaption class="silk">me, at FraserHacks 2026</figcaption>
+			<img src="/img/me/camera.webp" alt="me holding a Nikon camera up to my face, in front of a graffiti wall" />
+			<figcaption class="silk">me, behind the camera</figcaption>
 		</figure>
 	</div>
 	<div>
@@ -80,33 +80,12 @@
 			</ul>
 		</div></div>
 		<div class="stack">
-			<div class="cast"><div class="board blue list">
-				<h2 class="silk-h">school</h2>
-				<p><strong>{school.name}</strong>, {school.grad}</p>
-				<ul class="dots">{#each school.notes as n}<li>{n}</li>{/each}</ul>
-			</div></div>
 			<div class="cast"><div class="board green list">
 				<h2 class="silk-h">away from the desk</h2>
 				<ul>{#each offline as o}<li><strong>{o.what}</strong> <span>{o.note}</span></li>{/each}</ul>
 			</div></div>
 		</div>
 	</div>
-</section>
-
-<section class="section">
-	<div class="section-head"><h2>the whole timeline</h2><p>a year at a time, newest first.</p></div>
-	<ol class="timeline cast">
-		{#each timeline as t, i}
-			<li class="board {['green', 'blue', 'purple', 'red', 'black', 'blue', 'green'][i % 7]}">
-				<h3 class="silk">{t.year}</h3>
-				<ul>
-					{#each t.items as it}
-						<li>{#if it.href}<a href={it.href}>{it.text}</a>{:else}{it.text}{/if}</li>
-					{/each}
-				</ul>
-			</li>
-		{/each}
-	</ol>
 </section>
 
 <style>
@@ -134,21 +113,13 @@
 	.list { padding: 26px 30px; }
 	.silk-h { font: 700 18px var(--mono); color: inherit; text-shadow: none; margin-bottom: 12px; }
 	.list ul { list-style: none; display: grid; gap: 9px; font-size: 15px; }
-	.list ul.dots { list-style: disc; padding-left: 1.1em; gap: 4px; margin-top: 8px; }
 	.list li span { opacity: 0.85; }
 	.list li em { font: normal 12px var(--mono); opacity: 0.6; margin-left: 8px; }
 	.list li strong { font-weight: 700; }
 	.list a { text-decoration-color: var(--black); }
 
-	.timeline { list-style: none; display: grid; gap: 16px; }
-	.timeline > li { display: grid; grid-template-columns: 180px 1fr; gap: 20px; padding: 24px 30px; }
-	.timeline h3 { font-size: 15px; padding-top: 2px; }
-	.timeline ul { display: grid; gap: 4px; padding-left: 1.1em; font-size: 15px; }
-	.timeline a { text-decoration-color: var(--gold); text-underline-offset: 3px; }
-
 	@media (max-width: 900px) {
 		.intro, .frc, .split { grid-template-columns: 1fr; }
 		.photo { width: 220px; }
-		.timeline > li { grid-template-columns: 1fr; gap: 8px; }
 	}
 </style>
