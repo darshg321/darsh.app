@@ -2,7 +2,7 @@
 	import ProjectCard from '#lib/components/ProjectCard.svelte';
 	import EventCard from '#lib/components/EventCard.svelte';
 	import { projects, bySlug, repo, repoOf } from '#lib/data/projects.js';
-	import { events } from '#lib/data/events.js';
+	import { events, eventUrl } from '#lib/data/events.js';
 	import { contact } from '#lib/data/about.js';
 	import { themeFonts } from '#lib/fonts.js';
 
@@ -34,8 +34,8 @@
 			now an FPGA board and a chip to go with it.
 		</p>
 		<p class="on-sky">
-			i co-lead <a href="/events/fraserhacks">FraserHacks</a>, run <a href="/events/dayoneof">Dayoneof</a> with Hack Club,
-			lead the <a href="/events/csclub">CS Club</a>, and led controls on <a href="/about#frc">FRC team 1325</a>.
+			i co-lead <a href={eventUrl('fraserhacks')}>FraserHacks</a>, run <a href={eventUrl('dayoneof')}>Dayoneof</a> with Hack Club,
+			lead the <a href={eventUrl('csclub')}>CS Club</a>, and led controls on <a href="/about#frc">FRC team 1325</a>.
 		</p>
 	</div>
 	<div class="cast pfp-wrap">
@@ -51,8 +51,8 @@
 	<h2 class="contact-heading">get in touch</h2>
 </div>
 <section class="live cast" aria-label="what i'm up to">
-	<!-- dressed like Dayoneof's own site, same as its event page -->
-	<a class="t-dayoneof running" href="/events/dayoneof">
+	<!-- dressed like Dayoneof's own site, same as its event card -->
+	<a class="t-dayoneof running" href={eventUrl('dayoneof')}>
 		<h3 class="silk">running</h3>
 		<p class="big-line">Dayoneof</p>
 		<p>a month of daily videos, with Hack Club. i built the site and post mine on @darsh.builds.</p>

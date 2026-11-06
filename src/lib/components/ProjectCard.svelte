@@ -27,7 +27,11 @@
 	</div>
 	{#if p.award}<span class="award silk">★ {p.award}</span>{/if}
 	{#if been.length}
-		<div class="been">{#each been as e}<a href="/events/{e.slug}">@ {e.name}</a>{/each}</div>
+		<div class="been">
+			{#each been as e}
+				{#if e.url}<a href={e.url}>@ {e.name}</a>{:else}<span>@ {e.name}</span>{/if}
+			{/each}
+		</div>
 	{/if}
 </div>
 
@@ -57,7 +61,7 @@
 	.linked:hover h3 { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 5px; }
 	/* the events it went to, as little silkscreen tags */
 	.been { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-	.been a {
+	.been :is(a, span) {
 		font: 600 12px/1 var(--mono); padding: 5px 7px; border-radius: 3px; text-decoration: none; color: inherit;
 		border: 1.5px solid color-mix(in srgb, currentColor 55%, transparent);
 	}

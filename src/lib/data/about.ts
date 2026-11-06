@@ -1,6 +1,7 @@
 // Roles, awards and the rest of the about page.
 
 import { repoOf } from './projects';
+import { eventUrl } from './events';
 
 export const contact = {
 	email: 'darshg321@gmail.com',
@@ -27,7 +28,7 @@ export const roles: Role[] = [
 		org: 'FraserHacks',
 		when: '2024 – now',
 		mask: 'purple',
-		href: '/events/fraserhacks',
+		href: eventUrl('fraserhacks'),
 		points: [
 			'co-lead fundraising, logistics and operations with a 10-person exec team',
 			'got sponsorship from Rotary and AP from zero contacts, and handle merch suppliers, judges and workshops',
@@ -40,7 +41,7 @@ export const roles: Role[] = [
 		org: 'Dayoneof, Hack Club',
 		when: 'Sep 2026 – now',
 		mask: 'yellow',
-		href: '/events/dayoneof',
+		href: eventUrl('dayoneof'),
 		points: [
 			'run a Hack Club program for teens to post a short video every day for a month',
 			'built the site, streak tracking and Slack bot in SvelteKit, Airtable and Hack Club Auth'
@@ -63,7 +64,7 @@ export const roles: Role[] = [
 		org: 'Fraser Comp Sci Club',
 		when: 'Oct 2023 – now',
 		mask: 'red',
-		href: '/events/csclub',
+		href: eventUrl('csclub'),
 		points: [
 			'run a weekly build club for 20+ students: LED speed builds, Arduino, soldering, PCBs',
 			'train members for the CCC, Peel Science Fair and Peel Skills, and built the club site'
@@ -74,7 +75,7 @@ export const roles: Role[] = [
 		org: 'Off-Script',
 		when: 'Aug – Sep 2026',
 		mask: 'white',
-		href: '/events/offscript',
+		href: eventUrl('offscript'),
 		points: [
 			'hosted a technical showcase at the University of Waterloo during Waterloo Tech Week',
 			'120+ RSVPs, 50+ attendees, 10+ live demos of FPGA, embedded and hardware/software projects'
@@ -119,13 +120,12 @@ i also helped a bunch of local teams with their code (10167, 4015 and 5031 among
 export const awards = [
 	{ what: 'Outstanding High School Student Science Award', who: 'University of Toronto, Andre Simpson Lab', when: '2025' },
 	{ what: '3rd place, costume contest ($5,000 lab instrument)', who: 'Hackaday Supercon, for TopArm', when: '2025', href: repoOf('toparm') },
-	{ what: '2nd place', who: 'Horizons Polaris, for bing bang dream adventure', when: '2026', href: '/events/polaris' },
-	{ what: 'funniest project', who: 'Fallout, for Jollipop', when: '2026', href: '/events/fallout' },
+	{ what: '2nd place', who: 'Horizons Polaris, for bing bang dream adventure', when: '2026', href: eventUrl('polaris') },
+	{ what: 'funniest project', who: 'Fallout, for Jollipop', when: '2026', href: eventUrl('fallout') },
 	{ what: 'OSHWA open source hardware certification', who: 'for Icey (CA000078)', when: '2026', href: repoOf('icey') },
 	{ what: 'silver medal', who: 'Waterloo Junior FLC', when: '2025' },
 	{ what: 'finalist', who: 'UofT Science Unlimited, with an AI garbage sorter', when: '2025' },
-	{ what: 'Hack Club Arcade showcase + Cider grant', who: 'for Productite', when: '2024', href: repoOf('productite') },
-	{ what: '1st place', who: 'BYSSI hackathon', when: '2023' }
+	{ what: 'Hack Club Arcade showcase + Cider grant', who: 'for Productite', when: '2024', href: repoOf('productite') }
 ];
 
 export const offline = [

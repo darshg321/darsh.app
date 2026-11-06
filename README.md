@@ -20,9 +20,9 @@ npm run check     # types
 | event themes (colours, fonts, textures borrowed from each event's site) | `src/lib/styles/themes.css` |
 | the board look | `src/app.css` |
 
-Pages: `/` home, `/projects` (filterable grid), `/events` and `/events/[slug]` (themed), `/about`.
-There are no project pages: a project card links to the project's GitHub repo (its first GitHub link) and lists
-the events it went to.
+Pages: `/` home, `/projects` (filterable grid), `/events` (themed cards), `/about`.
+There are no project or event pages: a project card links to the project's GitHub repo (its first GitHub link) and
+lists the events it went to, and an event card links to the event's own site (its `url`).
 
 ## Images
 

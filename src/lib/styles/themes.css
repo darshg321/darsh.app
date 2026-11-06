@@ -1,24 +1,11 @@
 /* each event borrows the look of its own site: colours, type and texture.
-   a theme sets the variables; .ev (a card) and .themed (a whole page) use them. */
+   a theme sets the variables; .ev (a card) uses them. */
 
 /* fonts lifted from the event sites that aren't on Google Fonts; only fetched where a theme uses them */
 @font-face { font-family: 'Hells Bells'; src: url('/fonts/hells-bells.otf') format('opentype'); font-display: swap; }
 @font-face { font-family: 'Castledown'; src: url('/fonts/castledown-heavy.woff2') format('woff2'); font-weight: 800; font-display: swap; }
 @font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi-medium.woff2') format('woff2'); font-weight: 400 500; font-display: swap; }
 @font-face { font-family: 'Satoshi'; src: url('/fonts/satoshi-bold.woff2') format('woff2'); font-weight: 600 800; font-display: swap; }
-
-.t-plain {
-	--bg: var(--white);
-	--fg: var(--navy);
-	--accent: var(--blue);
-	--ink: #fff;
-	--panel: #fff;
-	--panel-fg: var(--navy);
-	--line: var(--navy);
-	--head: var(--mono);
-	--text: var(--body);
-	--radius: 6px;
-}
 
 /* FraserHacks 2026: a purple night in space, pixel type with a magenta glow */
 .t-fraserhacks {
@@ -285,7 +272,7 @@ a.ev:hover { translate: 0 -3px; }
 
 /* ---------- per theme ---------- */
 .t-fraserhacks.ev { border: 1px solid var(--line); }
-.t-fraserhacks .ev-name, .t-fraserhacks h1 { text-shadow: var(--glow); font-weight: 700; }
+.t-fraserhacks .ev-name { text-shadow: var(--glow); font-weight: 700; }
 .t-fraserhacks .ev-stats b { text-shadow: var(--glow); }
 
 .t-dayoneof.ev { border: 2px solid var(--line); box-shadow: inset 0 0 0 0 transparent; }
@@ -304,20 +291,20 @@ a.ev:hover { translate: 0 -3px; }
 .t-offscript.wide .ev-body { padding-bottom: 54px; }
 .t-offscript.ev::before { background: none; }
 .t-offscript .ev-logo { height: 26px; opacity: 0.9; }
-.t-offscript .ev-name, .t-offscript h1 { text-transform: uppercase; letter-spacing: -0.04em; font-weight: 800; }
+.t-offscript .ev-name { text-transform: uppercase; letter-spacing: -0.04em; font-weight: 800; }
 .t-offscript .ev-when { font-family: 'Geist Mono', var(--mono); text-transform: uppercase; font-size: 13px; }
 .t-offscript .ev-stats b { background: var(--wtw); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -0.03em; }
 .t-offscript .ev-role { border-radius: 999px; padding: 8px 14px; font-family: 'Inter Tight', sans-serif; font-weight: 800; text-transform: uppercase; }
 .t-offscript .ev-cover { clip-path: none; border-left: 4px solid; border-image: var(--wtw) 1; }
 .t-offscript .ev-cover img { object-position: center 30%; }
 
-.t-csclub .ev-name, .t-csclub h1 { text-transform: uppercase; font-weight: 900; letter-spacing: -0.5px; }
+.t-csclub .ev-name { text-transform: uppercase; font-weight: 900; letter-spacing: -0.5px; }
 .t-csclub.ev::before { background: none; }
 .t-csclub .ev-stats b { color: var(--accent); font-weight: 900; }
 
 .t-polaris.ev { border: 2px solid var(--line); }
 .t-polaris .ev-logo { filter: invert(1) hue-rotate(180deg); }
-.t-polaris .ev-name, .t-polaris h1 { font-weight: 800; letter-spacing: -0.5px; }
+.t-polaris .ev-name { font-weight: 800; letter-spacing: -0.5px; }
 .t-polaris .ev-when { color: var(--accent); opacity: 1; }
 
 /* the wordmark already says the name, so the text version is only for screen readers */
@@ -327,7 +314,7 @@ a.ev:hover { translate: 0 -3px; }
 .t-outpost .ev-logo { height: 76px; }
 .t-polaris .ev-logo { height: 64px; }
 .t-outpost.ev { border: 3px solid var(--line); box-shadow: inset 0 -8px 0 rgba(59, 49, 47, 0.18); }
-.t-outpost .ev-name, .themed.t-outpost h1 {
+.t-outpost .ev-name {
 	font-weight: 400; text-transform: uppercase; letter-spacing: 1px; color: #fcf3de;
 	-webkit-text-stroke: 2px var(--line); paint-order: stroke fill; text-shadow: 3px 3px 0 var(--line);
 }
@@ -344,104 +331,28 @@ a.ev:hover { translate: 0 -3px; }
 }
 .t-fallout .ev-body { margin: 14px; padding: 18px 20px; background: #e8d5c4; border: 2px solid #61453a; flex: 0 1 auto; align-self: flex-start; }
 .t-fallout .ev-logo { height: 58px; }
-.t-fallout .ev-name, .t-fallout h1 { font-weight: 400; }
+.t-fallout .ev-name { font-weight: 400; }
 .t-fallout .ev-role { color: #e8d5c4; }
 
-.t-alleyway .ev-name, .t-alleyway h1 { text-transform: uppercase; font-weight: 800; letter-spacing: -0.5px; }
+.t-alleyway .ev-name { text-transform: uppercase; font-weight: 800; letter-spacing: -0.5px; }
 .t-alleyway .ev-logo { height: 64px; }
 .t-alleyway .ev-when { padding-bottom: 8px; border-bottom: 3px solid #fff; align-self: stretch; opacity: 1; }
 .t-alleyway.ev::before { background: none; }
 
 .t-undercity.ev { border: 1px solid var(--line); }
-.t-undercity .ev-name, .t-undercity h1 { font-style: italic; font-weight: 700; text-transform: uppercase; text-shadow: var(--glow); }
+.t-undercity .ev-name { font-style: italic; font-weight: 700; text-transform: uppercase; text-shadow: var(--glow); }
 .t-undercity .ev-logo { height: 72px; }
 
 .t-hackthenorth.ev { border: 3px solid #fff; padding-bottom: 26px; }
 .t-hackthenorth.ev::before { background: none; }
-.t-hackthenorth .ev-name, .t-hackthenorth h1 {
+.t-hackthenorth .ev-name {
 	font-weight: 800; background: linear-gradient(90deg, #8c1414, #e2462a); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 
 .t-uottahack.ev { border: 1px solid rgba(255, 143, 210, 0.45); }
-.t-uottahack .ev-name, .t-uottahack h1 {
+.t-uottahack .ev-name {
 	font-weight: 800; letter-spacing: -1px; background: linear-gradient(90deg, #ffd5c4, #f0a2ff 50%, #7fa6ff); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-
-.t-plain.ev { border: 2px solid var(--navy); }
-.t-plain .ev-name { font-size: 22px; }
-
-/* ================= a whole themed page ================= */
-.themed {
-	color: var(--fg);
-	font-family: var(--text);
-}
-.themed-bg {
-	position: fixed;
-	inset: 0;
-	z-index: -1;
-	background: var(--bg);
-}
-.themed .panel {
-	background: var(--panel);
-	color: var(--panel-fg);
-	border-radius: var(--radius);
-	padding: 26px 30px;
-}
-.t-fraserhacks .panel { border: 1px solid var(--line); backdrop-filter: blur(6px); }
-.t-dayoneof .panel { border: 2px solid var(--line); box-shadow: 6px 6px 0 var(--line); }
-.t-offscript .panel { border: 1px solid var(--line); backdrop-filter: blur(4px); }
-.t-csclub .panel { border: 2px solid var(--line); }
-.t-polaris .panel { border: 1px solid var(--line); backdrop-filter: blur(6px); }
-.t-outpost .panel { border: 3px solid var(--line); box-shadow: 6px 6px 0 var(--line); }
-.t-fallout .panel { border: 6px solid #8f6a55; box-shadow: 0 0 0 2px #3a2a22, inset 0 0 0 2px #c9ad95; }
-.t-alleyway .panel { border-top: 3px solid #fff; }
-.t-undercity .panel { border: 1px solid var(--line); box-shadow: 0 0 0 1px rgba(255, 79, 220, 0.25), 0 0 40px rgba(84, 79, 255, 0.25); }
-.t-hackthenorth .panel { border: 3px solid #fff; box-shadow: 0 6px 0 rgba(140, 20, 20, 0.25); }
-.t-uottahack .panel { border: 1px solid var(--line); }
-.t-plain .panel { border: 2px solid var(--navy); }
-.themed .panel .prose a { text-decoration-color: var(--accent); }
-.t-offscript .panel .prose strong { background: var(--wtw) left bottom / 100% 3px no-repeat; padding-bottom: 1px; }
-
-/* on light event pages the white sky text on the header and footer needs to go dark */
-body:has(.themed.t-dayoneof, .themed.t-outpost, .themed.t-plain, .themed.t-hackthenorth) :is(.top a, .top nav a, .foot) {
-	color: #1a1410;
-	text-shadow: none;
-}
-
-/* a whole page needs the art to cover the screen, not sit in a corner like on the cards */
-/* Fallout: their hero, the crossing into a Shenzhen of green and blue towers, with the cream clouds along the bottom */
-.t-fallout .themed-bg {
-	background:
-		url('/img/e/fallout/banner.webp') center bottom -4px / max(1400px, 110%) auto repeat-x,
-		url('/img/e/fallout/hero.webp') center bottom / max(1676px, 100%) auto no-repeat,
-		linear-gradient(#38c9ff, #8adcff 70%);
-}
-/* Hack the North: the same valley, big. bushes up both edges, the pines and mountains along the bottom, then the table */
-.t-hackthenorth .themed-bg {
-	background:
-		url('/img/e/htn/table-edge.webp') center bottom / auto 70px repeat-x,
-		url('/img/e/htn/grass.webp') left bottom 66px / auto 34px repeat-x,
-		url('/img/e/htn/bush-dark.webp') left -60px bottom 70px / 260px auto no-repeat,
-		url('/img/e/htn/bush-light.webp') right -40px bottom 70px / 230px auto no-repeat,
-		url('/img/e/htn/tree-row.webp') center bottom 80px / auto 110px repeat-x,
-		url('/img/e/htn/mountain-left.webp') left 6% bottom 120px / auto 230px no-repeat,
-		url('/img/e/htn/mountain-front.webp') right 10% bottom 120px / auto 190px no-repeat,
-		url('/img/e/htn/bg-left.webp') left -70px top 90px / 160px auto no-repeat,
-		url('/img/e/htn/bg-right.webp') right -70px top 120px / 160px auto no-repeat,
-		url('/img/e/htn/cloud.webp') left 18% top 70px / 190px auto no-repeat,
-		url('/img/e/htn/cloud.webp') right 22% top 46% / 150px auto no-repeat,
-		linear-gradient(#bdeefb, #a6e6f8 60%);
-}
-/* their row of bushes is the divider between sections, and the projects sit on the picnic table */
-.t-hackthenorth .block { padding-top: 84px; background: url('/img/e/htn/separator.webp') center top / min(560px, 90%) auto no-repeat; }
-.t-hackthenorth .block h2 { position: relative; display: inline-block; padding-right: 40px; }
-.t-hackthenorth .block h2::after { content: ''; position: absolute; right: 0; top: -12px; width: 32px; height: 32px; background: url('/img/e/htn/sparkle.webp') center / contain no-repeat; }
-.t-hackthenorth .made { padding-bottom: 58px; background: url('/img/e/htn/table.webp') center bottom / 100% 54px no-repeat; }
-.t-polaris .themed-bg { background: linear-gradient(rgba(38, 40, 84, 0.5), rgba(38, 40, 84, 0.85)), url('/img/e/polaris-bg.webp') center bottom / cover, #262854; }
-.t-uottahack .themed-bg { background: linear-gradient(rgba(5, 6, 26, 0.6), rgba(5, 6, 26, 0.9)), url('/img/e/uottahack-art.webp') right center / auto 90% no-repeat, #05061a; }
-
-/* wordmark logos already say the name */
-.themed.t-outpost h1, .themed.t-undercity h1, .themed.t-fallout h1 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 
 /* phones: the photo on a wide card goes on top instead of beside */
 @media (max-width: 760px) {

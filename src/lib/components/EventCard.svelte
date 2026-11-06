@@ -6,7 +6,8 @@
 	const site = $derived(e.cover?.startsWith('/img/s/'));
 </script>
 
-<a class="ev t-{e.theme}" class:wide href="/events/{e.slug}">
+<!-- links out to the event's own site; events without one are just a card -->
+<svelte:element this={e.url ? 'a' : 'div'} class="ev t-{e.theme}" class:wide href={e.url}>
 	<div class="ev-body">
 		{#if e.logo}<img class="ev-logo" src={e.logo} alt="" loading="lazy" />{/if}
 		<span class="ev-name">{e.name}</span>
@@ -26,4 +27,4 @@
 		</div>
 	{/if}
 	{#if e.award}<span class="ev-award"><b>★</b> {e.award}</span>{/if}
-</a>
+</svelte:element>

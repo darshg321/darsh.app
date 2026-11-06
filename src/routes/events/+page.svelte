@@ -15,7 +15,7 @@
 
 <h1 class="page-title">events</h1>
 <p class="on-sky intro">
-	the ones i run, and the ones i've flown out to. each one is dressed in its own colours, and links to what i made there.
+	the ones i run, and the ones i've flown out to. each one is dressed in its own colours, and links to its own site.
 </p>
 
 <section class="section">
