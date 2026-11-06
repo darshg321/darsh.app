@@ -8,6 +8,13 @@
 
 <!-- links out to the event's own site; events without one are just a card -->
 <svelte:element this={e.url ? 'a' : 'div'} class="ev t-{e.theme}" class:wide href={e.url}>
+	{#if e.scene}
+		<div class="ev-scene" aria-hidden="true">
+			{#each e.scene as s}
+				<img src={s.src} alt="" loading="lazy" class:flip={s.flip} style="left: {s.x}%; bottom: {s.y}px; height: {s.h}px" />
+			{/each}
+		</div>
+	{/if}
 	<div class="ev-body">
 		{#if e.logo}<img class="ev-logo" src={e.logo} alt="" loading="lazy" />{/if}
 		<span class="ev-name">{e.name}</span>

@@ -166,7 +166,7 @@
 	.contact:hover strong { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
 
 	.row3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-	.tally { margin-top: 18px; font-size: 16px; }
+	.tally { margin-top: 18px; font-size: 16px; width: fit-content; }
 	.row4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
 
 	@media (max-width: 1100px) {

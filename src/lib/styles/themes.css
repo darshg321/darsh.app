@@ -107,14 +107,26 @@
 	--radius: 4px;
 }
 
-/* Fallout: Shenzhen's bright blue sky, clouds, the wooden frame and the hand-lettered type from their site */
+/* Fallout: their clearing (pale sky, cloud line, a meadow of grass tufts), the wooden fence frame,
+   beige panels, brown buttons and the hand-lettered type, all from their site */
 .t-fallout {
-	--bg: url('/img/e/fallout/banner.webp') center bottom -2px / 160% auto repeat-x, url('/img/e/fallout-clouds.webp') center bottom / 140% auto no-repeat, linear-gradient(#38c9ff, #8adcff);
-	--fg: #1e1613;
-	--accent: #61453a;
-	--ink: #e8d5c4;
-	--panel: #e8d5c4;
-	--panel-fg: #1e1613;
+	--meadow: 170px;
+	--bg:
+		url('/img/e/fallout/tuft-2.svg') left 4% bottom 128px / 10px auto no-repeat,
+		url('/img/e/fallout/tuft-5.svg') left 27% bottom 70px / 9px auto no-repeat,
+		url('/img/e/fallout/tuft-8.svg') left 56% bottom 120px / 10px auto no-repeat,
+		url('/img/e/fallout/tuft-2.svg') left 55% bottom 66px / 8px auto no-repeat,
+		url('/img/e/fallout/tuft-5.svg') left 97% bottom 64px / 10px auto no-repeat,
+		url('/img/e/fallout/tuft-8.svg') left 14% bottom 72px / 8px auto no-repeat,
+		url('/img/e/fallout/cloud-4.webp') left -60px bottom var(--meadow) / auto 54px no-repeat,
+		url('/img/e/fallout/cloud-1.webp') left 34% bottom var(--meadow) / auto 46px no-repeat,
+		url('/img/e/fallout/cloud-3.webp') right -50px bottom var(--meadow) / auto 62px no-repeat,
+		linear-gradient(to top, #c8e6d8 var(--meadow), #c3efff var(--meadow));
+	--fg: #61453a;
+	--accent: #9f715d;
+	--ink: #edd1b0;
+	--panel: #edd1b0;
+	--panel-fg: #61453a;
 	--line: #61453a;
 	--head: 'Hells Bells', 'Outfit', sans-serif;
 	--text: 'Outfit', var(--body);
@@ -150,16 +162,19 @@
 	--glow: 2px 0 #ff4fdc, -2px 0 #4fd9ff;
 }
 
-/* Hack the North: their storybook valley (clouds, glacier mountains, a row of pines, the picnic table)
-   and their own Castledown + Satoshi type */
+/* Hack the North: their hero. stippled clouds over glacier mountains, then the orange picnic table
+   with the stickers on it, and their own Castledown + Satoshi type */
 .t-hackthenorth {
 	--bg:
-		url('/img/e/htn/cloud.webp') right 26% top -30px / 150px auto no-repeat,
-		url('/img/e/htn/grass.webp') left bottom / auto 22px repeat-x,
-		url('/img/e/htn/tree-row.webp') right -40px bottom 6px / auto 46px no-repeat,
-		url('/img/e/htn/mountain-left.webp') right 70px bottom 30px / auto 120px no-repeat,
-		url('/img/e/htn/mountain-front.webp') right -30px bottom 24px / auto 90px no-repeat,
-		linear-gradient(#bdeefb, #a6e6f8);
+		url('/img/e/htn/table-edge.webp') left bottom / auto 30px repeat-x,
+		url('/img/e/htn/table.webp') center bottom 28px / 104% 34px no-repeat,
+		url('/img/e/htn/cloud.webp') left 46% top -40px / 170px auto no-repeat,
+		url('/img/e/htn/cloud.webp') right -50px top -20px / 150px auto no-repeat,
+		url('/img/e/htn/tree-row.webp') right -60px bottom 58px / auto 40px no-repeat,
+		url('/img/e/htn/mountain-left.webp') right 90px bottom 56px / auto 130px no-repeat,
+		url('/img/e/htn/mountain-front.webp') right -40px bottom 56px / auto 100px no-repeat,
+		url('/img/e/htn/mountain-front.webp') left -80px bottom 56px / auto 70px no-repeat,
+		linear-gradient(#d6f5fd, #a6e6f8 70%);
 	--fg: #5a1a12;
 	--accent: #b3261e;
 	--ink: #fff;
@@ -215,7 +230,10 @@
 	pointer-events: none;
 }
 a.ev:hover { translate: 0 -3px; }
-.ev-body { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 24px 26px; flex: 1; min-width: 0; }
+.ev-scene { position: absolute; inset: 0; pointer-events: none; }
+.ev-scene img { position: absolute; width: auto; translate: -50% 0; }
+.ev-scene img.flip { scale: -1 1; }
+.ev-body { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 8px; padding: 24px 26px; flex: 1; min-width: 0; }
 .ev .ev-logo { height: 52px; width: auto; max-width: 70%; object-fit: contain; align-self: flex-start; margin-bottom: 4px; }
 .ev .ev-name { font: 800 30px/1.02 var(--head); }
 .ev .ev-when { font-size: 14px; opacity: 0.85; }
@@ -254,7 +272,7 @@ a.ev:hover { translate: 0 -3px; }
 	position: absolute;
 	top: 16px;
 	right: 16px;
-	z-index: 2;
+	z-index: 3;
 	font: 800 15px/1.15 var(--mono);
 	max-width: 19ch;
 	text-align: center;
@@ -320,19 +338,33 @@ a.ev:hover { translate: 0 -3px; }
 }
 .t-outpost .ev-role { font-family: 'Germania One', serif; font-size: 16px; font-weight: 400; text-transform: uppercase; }
 
-.t-fallout.ev { border: 7px solid #8f6a55; outline: 2px solid #3a2a22; outline-offset: -2px; padding-bottom: 40px; }
+.t-fallout.ev { min-height: 310px; }
+.t-fallout.ev::before { background: none; }
+/* their wooden fence, the same nine pieces their panels are framed in */
 .t-fallout.ev::after {
-	content: ''; position: absolute; inset: -7px; pointer-events: none; z-index: 1;
+	content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 2;
 	background:
-		url('/img/e/fallout-top_left.webp') left top / 60px no-repeat,
-		url('/img/e/fallout-top_right.webp') right top / 60px no-repeat,
-		url('/img/e/fallout-bottom_left.webp') left bottom / 60px no-repeat,
-		url('/img/e/fallout-bottom_right.webp') right bottom / 60px no-repeat;
+		url('/img/e/fallout-top_left.webp') left top / 45px 40px no-repeat,
+		url('/img/e/fallout-top_right.webp') right top / 45px 40px no-repeat,
+		url('/img/e/fallout-bottom_left.webp') left bottom / 45px 40px no-repeat,
+		url('/img/e/fallout-bottom_right.webp') right bottom / 45px 40px no-repeat,
+		url('/img/e/fallout/border-top.webp') left 45px top / calc(100% - 90px) 40px no-repeat,
+		url('/img/e/fallout/border-bottom.webp') left 45px bottom / calc(100% - 90px) 40px no-repeat,
+		url('/img/e/fallout/border-left.webp') left top 40px / 45px calc(100% - 80px) no-repeat,
+		url('/img/e/fallout/border-right.webp') right top 40px / 45px calc(100% - 80px) no-repeat;
 }
-.t-fallout .ev-body { margin: 14px; padding: 18px 20px; background: #e8d5c4; border: 2px solid #61453a; flex: 0 1 auto; align-self: flex-start; }
-.t-fallout .ev-logo { height: 58px; }
+.t-fallout .ev-body {
+	margin: 26px 0 96px 30px; padding: 14px 18px; flex: 0 1 auto; align-self: flex-start; gap: 5px; max-width: 54%;
+	background: var(--panel); border: 2px solid var(--line); box-shadow: 4px 4px 0 #d4bb9d, 8px 8px 0 #ae9578;
+}
+.t-fallout .ev-logo { height: 40px; max-width: 100%; }
 .t-fallout .ev-name { font-weight: 400; }
-.t-fallout .ev-role { color: #e8d5c4; }
+.t-fallout .ev-when { font-weight: 600; }
+.t-fallout .ev-sum { font-size: 14px; }
+.t-fallout.ev:has(.ev-award) .ev-body { padding-right: 18px; }
+.t-fallout .ev-role { font-family: var(--text); text-transform: uppercase; border: 2px solid var(--line); border-radius: 0; }
+.t-fallout .ev-award { background: #9f715d; color: #edd1b0; border-color: #61453a; box-shadow: -4px 4px 0 #61453a; font-family: var(--text); text-transform: uppercase; }
+.t-fallout .ev-award b { color: #ffebad; }
 
 .t-alleyway .ev-name { text-transform: uppercase; font-weight: 800; letter-spacing: -0.5px; }
 .t-alleyway .ev-logo { height: 64px; }
@@ -343,11 +375,14 @@ a.ev:hover { translate: 0 -3px; }
 .t-undercity .ev-name { font-style: italic; font-weight: 700; text-transform: uppercase; text-shadow: var(--glow); }
 .t-undercity .ev-logo { height: 72px; }
 
-.t-hackthenorth.ev { border: 3px solid #fff; padding-bottom: 26px; }
+.t-hackthenorth.ev { border: 3px solid #fff; }
 .t-hackthenorth.ev::before { background: none; }
+.t-hackthenorth .ev-body { padding-bottom: 104px; gap: 6px; }
 .t-hackthenorth .ev-name {
-	font-weight: 800; background: linear-gradient(90deg, #8c1414, #e2462a); -webkit-background-clip: text; background-clip: text; color: transparent;
+	font-weight: 800; background: linear-gradient(90deg, #8a1c14, #c9331e 60%, #e8562a); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
+.t-hackthenorth .ev-when { color: #b3261e; font-weight: 700; opacity: 1; }
+.t-hackthenorth .ev-sum { color: #5a1a12; font-weight: 600; }
 
 .t-uottahack.ev { border: 1px solid rgba(255, 143, 210, 0.45); }
 .t-uottahack .ev-name {
@@ -361,4 +396,6 @@ a.ev:hover { translate: 0 -3px; }
 	.ev-cover { width: auto; height: 170px; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%); }
 	.ev-cover.site { width: auto; height: auto; margin: 16px 16px 0; rotate: 0deg; }
 	.ev:has(.ev-award) .ev-body { padding-right: 26px; padding-top: 70px; }
+	/* the panel goes full width under the sticker, and the whole meadow sits below it */
+	.t-fallout.ev:has(.ev-award) .ev-body { margin: 66px 30px 194px; max-width: none; padding: 14px 18px; }
 }

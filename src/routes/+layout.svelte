@@ -32,7 +32,7 @@
 	</main>
 
 	<footer>
-		<p class="foot">
+		<p class="foot sky-note">
 			by darsh, with (productive) procrastination &lt;3
 		</p>
 	</footer>
@@ -54,7 +54,7 @@
 	nav a[aria-current] { border-bottom-color: var(--yellow); }
 
 	footer { margin-top: 72px; }
-	.foot { font-size: 14px; color: #fff; text-shadow: 0 1px 3px rgba(12, 45, 90, 0.6); }
+	.foot { display: inline-block; font-size: 14px; color: #fff; text-shadow: 0 1px 3px rgba(12, 45, 90, 0.6); }
 
 	@media (max-width: 640px) {
 		.top { flex-direction: column; align-items: flex-start; margin-bottom: 36px; }

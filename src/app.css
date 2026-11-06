@@ -97,6 +97,13 @@ h2 { font: 700 26px var(--mono); }
 	font-size: 18px;
 	text-shadow: 0 1px 2px rgba(10, 40, 80, 0.55), 0 0 12px rgba(10, 40, 80, 0.35);
 }
+/* white text over the bright parts of the sky gets a faint dark backing so it stays readable */
+.on-sky, .section-head p, .sky-note {
+	background: rgba(10, 32, 64, 0.35);
+	padding: 12px 16px;
+	border-radius: 4px;
+}
+.section-head p, .sky-note { padding: 6px 12px; }
 .on-sky a, a.sky-link {
 	color: #fff;
 	text-decoration-color: var(--yellow);

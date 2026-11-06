@@ -27,6 +27,8 @@ export interface Event {
 	logo?: string;
 	cover?: string;
 	summary: string;
+	/** art placed on the card: x is the centre as a % of the width, y is px up from the bottom, h the height in px */
+	scene?: { src: string; x: number; y: number; h: number; flip?: boolean }[];
 	stats?: { n: string; label: string }[];
 	award?: string;
 	projects?: string[];
@@ -145,6 +147,20 @@ export const events: Event[] = [
 		logo: '/img/e/fallout/logo.webp',
 		cover: '/img/s/fallout.webp',
 		summary: 'build hardware for free, then go to Shenzhen. a week in the hardware capital of the world.',
+		// the pond from their clearing, and some of the critters you hatch there
+		scene: [
+			{ src: '/img/e/fallout/critters/angrycat.webp', x: 67, y: 132, h: 54 },
+			{ src: '/img/e/fallout/critters/party-cat.webp', x: 92, y: 128, h: 54, flip: true },
+			{ src: '/img/e/fallout/pond.webp', x: 80, y: 52, h: 104 },
+			{ src: '/img/e/fallout/critters/riptide.webp', x: 66, y: 74, h: 42 },
+			{ src: '/img/e/fallout/critters/chocolate.webp', x: 93, y: 22, h: 62, flip: true },
+			{ src: '/img/e/fallout/critters/breadbear.webp', x: 79, y: 18, h: 44 },
+			{ src: '/img/e/fallout/critters/jellycat.webp', x: 9, y: 22, h: 50 },
+			{ src: '/img/e/fallout/critters/trashcan.webp', x: 22, y: 18, h: 58 },
+			{ src: '/img/e/fallout/critters/orange.webp', x: 35, y: 24, h: 48, flip: true },
+			{ src: '/img/e/fallout/critters/gren-frog.webp', x: 47, y: 16, h: 60 },
+			{ src: '/img/e/fallout/critters/grass.webp', x: 58, y: 14, h: 54 }
+		],
 		award: 'funniest project',
 		projects: ['jollipop', 'keychain-tris', 'whale-badge', 'aura-generator'],
 	},
@@ -172,6 +188,14 @@ export const events: Event[] = [
 		theme: 'hackthenorth',
 		cover: '/img/s/htn.webp',
 		summary: "Canada's biggest hackathon.",
+		// the stickers off their picnic table
+		scene: [
+			{ src: '/img/e/htn/vinyl.webp', x: 56, y: 30, h: 66 },
+			{ src: '/img/e/htn/polaroid.webp', x: 73, y: 28, h: 56 },
+			{ src: '/img/e/htn/cassette.webp', x: 89, y: 30, h: 62 },
+			{ src: '/img/e/htn/sparkle.webp', x: 64, y: 88, h: 26 },
+			{ src: '/img/e/htn/sparkle.webp', x: 96, y: 96, h: 18 }
+		],
 		stats: [
 			{ n: '1000+', label: 'hackers' },
 			{ n: '36', label: 'hours' }

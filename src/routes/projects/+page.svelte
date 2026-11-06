@@ -87,7 +87,6 @@
 	   a deeper hard shadow, a soft one under it, and a dark board edge */
 	.grid.cast { filter: drop-shadow(-8px 10px 0 rgba(8, 28, 58, 0.45)) drop-shadow(0 14px 18px rgba(8, 28, 58, 0.35)); }
 	.grid :global(.card) { box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.28), inset 0 -4px 0 rgba(0, 0, 0, 0.12); }
-	.intro { background: rgba(10, 32, 64, 0.35); padding: 12px 16px; border-radius: 4px; }
 
 	.lists { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
 	.list { padding: 26px 30px 24px; }
