@@ -130,16 +130,19 @@ func Sky(w, h int) *Layer {
 		for y := 0; y < h; y++ {
 			for x := 0; x < w; x++ {
 				x0, y0 := ox+float64(x)*sx, oy+float64(y)*sy
-				c := posterise(p.patch(x0, y0, x0+sx, y0+sy), 12)
-				lum := c.lum()
-				// stretch the contrast so the blue gets thin strokes and the clouds get letters
-				t := math.Max(0, math.Min(0.999, (lum-0.12)/0.78))
-				r := skyRamp[int(t*float64(len(skyRamp)))]
-				l.C[y*w+x] = Cell{K: Solid, R: r, Fg: mix(c, white, 0.15+0.35*t), Bg: mix(c, night, 0.52)}
+				l.C[y*w+x] = skyCell(p.patch(x0, y0, x0+sx, y0+sy))
 			}
 		}
 		return l
 	})
+}
+
+func skyCell(c RGB) Cell {
+	c = posterise(c, 12)
+	// stretch the contrast so the blue gets thin strokes and the clouds get letters
+	t := math.Max(0, math.Min(0.999, (c.lum()-0.12)/0.78))
+	r := skyRamp[int(t*float64(len(skyRamp)))]
+	return Cell{K: Solid, R: r, Fg: mix(c, white, 0.15+0.35*t), Bg: mix(c, night, 0.52)}
 }
 
 // posterise steps brightness and saturation in HSV but keeps the hue, so neighbouring cells share

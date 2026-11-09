@@ -23,9 +23,9 @@ var statuses = []status{
 
 var toronto, _ = time.LoadLocation("America/Toronto")
 
+// landing is the panels only; View lays them over the drifting sky
 func (m *model) landing() *Layer {
 	l := NewLayer(m.w, m.h)
-	copy(l.C, Sky(m.w, m.h).C)
 
 	name := small.Render("darsh")
 	nameW := 0
@@ -41,7 +41,7 @@ func (m *model) landing() *Layer {
 	for _, st := range statuses {
 		infoW = max(infoW, labelW+2+width(st.what))
 	}
-	tag := []Span{{S: "making hardware and running hackathons @ "}, {S: "hack club", Fg: &hcRed}}
+	tag := []Span{{S: "making hardware and running hackathons"}}
 	email := m.c.Contact.Email
 
 	// the tabs: the picked one is a yellow key with an arrow saying it opens downwards

@@ -11,9 +11,13 @@ const (
 	// the landing clock only needs to keep up with the minute
 	tickEvery = 15 * time.Second
 	idleAfter = 10 * time.Minute
+	// how often the landing's clouds are redrawn as they drift
+	driftEvery = 250 * time.Millisecond
 )
 
 type tickMsg time.Time
+
+type driftMsg time.Time
 
 type model struct {
 	c    *Content
@@ -29,9 +33,11 @@ type model struct {
 	listOff     int // where the project list was scrolled to before opening one
 	rows        [][2]int
 
-	lastIn  time.Time
-	ticking bool
-	wantSel bool
+	lastIn   time.Time
+	ticking  bool
+	drifting bool
+	start    time.Time // the sky's drift is counted from here
+	wantSel  bool
 
 	layer *Layer
 	dirty bool
@@ -39,23 +45,34 @@ type model struct {
 }
 
 func newModel(c *Content, prof Profile, w, h int) *model {
-	return &model{c: c, prof: prof, w: max(w, 20), h: max(h, 8), detail: -1, dirty: true, lastIn: time.Now()}
+	now := time.Now()
+	return &model{c: c, prof: prof, w: max(w, 20), h: max(h, 8), detail: -1, dirty: true, lastIn: now, start: now}
 }
 
 func tick() tea.Cmd { return tea.Tick(tickEvery, func(t time.Time) tea.Msg { return tickMsg(t) }) }
 
-func (m *model) Init() tea.Cmd {
-	m.ticking = true
-	return tick()
+func driftTick() tea.Cmd {
+	return tea.Tick(driftEvery, func(t time.Time) tea.Msg { return driftMsg(t) })
 }
 
+func (m *model) Init() tea.Cmd {
+	m.ticking, m.drifting = true, true
+	return tea.Batch(tick(), driftTick())
+}
+
+// touch wakes the clock up after idling, and the clouds if they're on screen
 func (m *model) touch() tea.Cmd {
 	m.lastIn = time.Now()
+	var cmds []tea.Cmd
 	if !m.ticking {
 		m.ticking = true
-		return tick()
+		cmds = append(cmds, tick())
 	}
-	return nil
+	if !m.drifting && m.page == pageLanding {
+		m.drifting = true
+		cmds = append(cmds, driftTick())
+	}
+	return tea.Batch(cmds...)
 }
 
 func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
@@ -75,6 +92,14 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 		return m, tick()
 
+	case driftMsg:
+		// nothing to do but redraw; stop when nobody's looking at the sky
+		if m.page != pageLanding || time.Since(m.lastIn) > idleAfter {
+			m.drifting = false
+			return m, nil
+		}
+		return m, driftTick()
+
 	case tea.MouseMsg:
 		cmd := m.touch()
 		switch msg.Button {
@@ -87,7 +112,7 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.click(msg.X, msg.Y)
 			}
 		}
-		return m, cmd
+		return m, tea.Batch(cmd, m.touch())
 
 	case tea.KeyMsg:
 		cmd := m.touch()
@@ -99,7 +124,7 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if m.key(msg.String()) {
 			return m, tea.Quit
 		}
-		return m, cmd
+		return m, tea.Batch(cmd, m.touch())
 	}
 	return m, nil
 }
@@ -260,7 +285,7 @@ func (m *model) View() string {
 		m.dirty = false
 	}
 	if m.page == pageLanding {
-		out := Over(m.layer, NewLayer(m.w, 1), 0)
+		out := Over(SkyAt(m.w, m.h, time.Since(m.start).Seconds()), m.layer, 0)
 		m.overlay(out)
 		return Render(out, m.prof)
 	}

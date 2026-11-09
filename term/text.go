@@ -22,7 +22,6 @@ var (
 	// the landing panels
 	panel  = hex("#050a12")
 	border = hex("#5d6b82")
-	hcRed  = hex("#ec3750") // Hack Club's red
 	green  = hex("#46e07c") // the "working on it now" pad
 )
 
