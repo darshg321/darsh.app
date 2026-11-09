@@ -1,0 +1,21 @@
+# systemd unit for the SSH site. Copy the binary to /opt/darsh-term/term and this file to
+# /etc/systemd/system/, then: systemctl enable --now darsh-term
+[Unit]
+Description=darsh.app over SSH
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=darsh-term
+WorkingDirectory=/opt/darsh-term
+Environment=PORT=22 HOST_KEY=/opt/darsh-term/.ssh/id_ed25519
+ExecStart=/opt/darsh-term/term
+# lets it bind port 22 without running as root
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+Restart=always
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/opt/darsh-term
+
+[Install]
+WantedBy=multi-user.target

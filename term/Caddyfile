@@ -1,0 +1,4 @@
+# darsh.app's A record points here so `ssh darsh.app` reaches the SSH site; the website itself is on Vercel at www
+darsh.app {
+	redir https://www.darsh.app{uri} permanent
+}

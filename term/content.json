@@ -1,0 +1,1499 @@
+{
+	"projects": [
+		{
+			"slug": "icey",
+			"title": "Icey",
+			"tagline": "an Uno-sized FPGA board, a course to learn it with, and now a chip",
+			"when": "Jul 2026 – now",
+			"year": 2026,
+			"kind": "both",
+			"status": "ongoing",
+			"statusLabel": "working on it now",
+			"mask": "green",
+			"stack": [
+				"iCE40UP5K",
+				"Verilog",
+				"KiCad",
+				"Yosys",
+				"nextpnr",
+				"JavaScript"
+			],
+			"with": [],
+			"events": [
+				"offscript"
+			],
+			"award": "OSHWA certified open source hardware (CA000078)",
+			"repo": "https://github.com/darshg321/Icey",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Icey"
+				},
+				{
+					"label": "OSHWA certificate",
+					"url": "https://certification.oshwa.org/ca000078.html"
+				}
+			],
+			"body": "Icey is an FPGA board the size of an Arduino Uno, built around the iCE40UP5K. it has a VGA port for display out, USB host for keyboards, USB-C programming over JTAG or UART, QSPI flash, a microSD slot, broken-out headers, LEDs and buttons. PCBWay fabbed and assembled it.\n\nthe board is half of it. the other half is **Learn FPGAs with Icey**, a course that runs the real open-source toolchain in your browser: Yosys compiled to WebAssembly synthesises your Verilog, then the exact gates get simulated on a virtual board with LEDs, switches, a 7-segment display, a serial terminal and a VGA monitor. hit \"build for Icey\" and it places and routes for the real chip and flashes it over WebUSB. 25 lessons go from lighting an LED to building your own CPU and an Apple I running the Woz Monitor.\n\nthere's also a 14-session **make a chip** track that ends with a VGA graphics chip laid out in GF180 for Hack Club's shared #asic tapeout. that's what i'm working on right now: my own design for the shared chip. it hasn't been on Icey yet; that's the next step before it goes to the fab.\n\ni brought the board to Off-Script so people could see it up close. it's certified open source hardware by OSHWA."
+		},
+		{
+			"slug": "dayoneof",
+			"title": "Dayoneof",
+			"tagline": "a Hack Club program: post a short video every day for a month",
+			"when": "Sep 2026 – now",
+			"year": 2026,
+			"kind": "software",
+			"status": "ongoing",
+			"statusLabel": "working on it now",
+			"mask": "yellow",
+			"stack": [
+				"SvelteKit",
+				"Svelte 5",
+				"Airtable",
+				"Slack API",
+				"Hack Club Auth"
+			],
+			"with": [
+				"Celestial",
+				"Zach Latta"
+			],
+			"events": [
+				"dayoneof"
+			],
+			"award": "",
+			"repo": "https://github.com/hackclub/dayoneof",
+			"links": [
+				{
+					"label": "dayoneof.hackclub.com",
+					"url": "https://dayoneof.hackclub.com"
+				},
+				{
+					"label": "github",
+					"url": "https://github.com/hackclub/dayoneof"
+				}
+			],
+			"body": "Dayoneof is a Hack Club \"you ship, we ship\" program for teens: post a short-form video every day for a month, about anything at all, keep the streak alive and earn prizes. i run it with Celestial and Zach Latta, and i built the site and everything behind it (44 commits so far).\n\nunder the hood: SvelteKit and Svelte 5, Airtable as the database, sign-in with Hack Club Auth, and a Slack bot on the events API. cron jobs settle each person's day (a streak freeze or a break), post the leaderboard at 9pm, and DM anyone with a streak who hasn't posted by 8pm their time. views come in from Hack Club's unified socials database, and there's a gallery, an FAQ and a page for every participant.\n\ni also added it to Hack Club's DNS and put a promo card for it on Stardance. my own daily videos go up on [@darsh.builds](https://www.instagram.com/darsh.builds/)."
+		},
+		{
+			"slug": "fraserhacks-sites",
+			"title": "FraserHacks Platform",
+			"tagline": "the check-in system and the sites for three years of our hackathon",
+			"when": "2024 – now",
+			"year": 2026,
+			"kind": "software",
+			"status": "shipped",
+			"statusLabel": "shipped",
+			"mask": "purple",
+			"stack": [
+				"React",
+				"MongoDB",
+				"Google Cloud",
+				"Vite",
+				"Tailwind"
+			],
+			"with": [
+				"Jason Chou"
+			],
+			"events": [
+				"fraserhacks"
+			],
+			"award": "",
+			"repo": "https://github.com/FraserHacks/FraserHacks2027",
+			"links": [
+				{
+					"label": "fraserhacks.dev",
+					"url": "https://fraserhacks.dev"
+				},
+				{
+					"label": "2026.fraserhacks.dev",
+					"url": "https://2026.fraserhacks.dev"
+				},
+				{
+					"label": "github",
+					"url": "https://github.com/FraserHacks/FraserHacks2027"
+				},
+				{
+					"label": "github",
+					"url": "https://github.com/FraserHacks/FH26"
+				},
+				{
+					"label": "github",
+					"url": "https://github.com/FraserHacks/fraserhacks24website"
+				}
+			],
+			"body": "for FraserHacks 2024 i was on the tech team: i built the check-in system in React and MongoDB on Google Cloud, and it handled 100+ attendees checking in live without going down. i also worked on the site and spent the day helping hackers get unstuck.\n\nsince then i've co-led the event, and Jason Chou and i made the sites: the space-themed one for FraserHacks 2026 (83 hackers, 28 projects, 7 judges), and the sunset one for 2027 that's taking interest forms now."
+		},
+		{
+			"slug": "ultisense",
+			"title": "Ultisense",
+			"tagline": "an ESP32-S3 dev board made to sense as many things as possible",
+			"when": "Nov 2025 – Mar 2026",
+			"year": 2026,
+			"kind": "hardware",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "purple",
+			"stack": [
+				"ESP32-S3",
+				"KiCad",
+				"C++",
+				"I²C",
+				"SPI"
+			],
+			"with": [],
+			"events": [
+				"polaris"
+			],
+			"award": "",
+			"repo": "https://github.com/darshg321/Ultisense",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Ultisense"
+				}
+			],
+			"body": "my favourite board so far. Ultisense packs an NFC antenna, a 6-DOF IMU, a VOC air sensor, humidity and temperature, colour and ambient light, a magnetometer, a microphone, two speakers and a microSD slot onto one ESP32-S3 board.\n\nwhen the boards arrived, none of the I²C sensors would talk. the folks in the 1BitSquared Discord pointed me at a logic analyzer (which i happened to have from an old AliExpress order), and by the time i'd soldered headers on to probe it, it had started working. after a fight with Arduino board definitions i made a custom board package, then got a real VOC index out of the gas sensor with Sensirion's algorithm: about 90–120 in my room, and up near 200 when i breathe on it, which is exactly what it should do.\n\ntwo Ultisense boards later became the flick controllers for Bing Bang Dream Adventure."
+		},
+		{
+			"slug": "bing-bang-dream-adventure",
+			"title": "Bing Bang Dream Adventure",
+			"tagline": "a Bad Apple!! rhythm game you play by flicking two IMU controllers",
+			"when": "Aug – Oct 2026",
+			"year": 2026,
+			"kind": "both",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "blue",
+			"stack": [
+				"Godot 4",
+				"Python",
+				"Arduino",
+				"ESP32-S3",
+				"Ultisense"
+			],
+			"with": [
+				"@flyingf15h"
+			],
+			"events": [
+				"offscript",
+				"polaris"
+			],
+			"award": "2nd place at Horizons Polaris",
+			"repo": "https://github.com/flyingf15h/bing-bang-dream-adventure",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/flyingf15h/bing-bang-dream-adventure"
+				}
+			],
+			"body": "a rhythm game inspired by Project Sekai and Beat Saber, synced to Bad Apple!!. notes come in from six directions and you flick the controllers to hit them. the controllers are Ultisense boards, read through their IMUs.\n\nGodot can't open a serial port, so a small Python bridge reads the boards over USB or WiFi, decides what counts as a flick, and posts each one to the game over localhost. there's a beatmap select, a results screen and a leaderboard page that reads the scores the game writes.\n\nwe made it at Horizons Polaris in Toronto and took 2nd place, mostly for how tightly the hardware and software fit together."
+		},
+		{
+			"slug": "minicopter",
+			"title": "Minicopter",
+			"tagline": "an ESP32 drone where the PCB is the frame",
+			"when": "Jul – Aug 2025",
+			"year": 2025,
+			"kind": "hardware",
+			"status": "assembled",
+			"statusLabel": "assembled, debugging",
+			"mask": "green",
+			"stack": [
+				"ESP32-C3",
+				"KiCad",
+				"MicroPython",
+				"PID"
+			],
+			"with": [],
+			"events": [
+				"undercity"
+			],
+			"award": "",
+			"repo": "https://github.com/darshg321/Minicopter",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Minicopter"
+				}
+			],
+			"body": "a small quadcopter where the circuit board is the frame: ESP32-C3, brushed motors on MOSFETs, LiPo charging over USB-C, an LDO and an IMU, with PID control and the goal of flying a set path from my room to the couch and landing.\n\ni designed it, ordered it and soldered it, then spent a lot of hours with a multimeter. the LDO's enable pin was held low by the wrong resistor, the USB CC pull-downs weren't soldered properly, and the USB ESD chip was too small to rework by hand. i got the 3.3 V rail up off a bench supply, but it hasn't flown yet. everything i learned went into Mini-Air.\n\nMinicopter was one of my submissions to Hack Club Highway, which got me to Undercity."
+		},
+		{
+			"slug": "arcadetris",
+			"title": "Arcadetris",
+			"tagline": "a two-player LED matrix Tetris arcade, built at Undercity",
+			"when": "Jul 2025",
+			"year": 2025,
+			"kind": "hardware",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "red",
+			"stack": [
+				"C++",
+				"Arduino",
+				"LED matrix"
+			],
+			"with": [],
+			"events": [
+				"csclub",
+				"undercity"
+			],
+			"award": "",
+			"repo": "https://github.com/darshg321/arcadetris",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/arcadetris"
+				}
+			],
+			"body": "built from scratch in four days at Hack Club Undercity at GitHub HQ: an LED matrix in a cardboard cabinet, two sets of controls, and two-player Tetris where each side keeps its own score. it worked by the end, and it's still on the project wall of the CS Club site."
+		},
+		{
+			"slug": "steady",
+			"title": "Steady",
+			"tagline": "a double inverted pendulum that balances itself on a rack and pinion",
+			"when": "Jun 2026",
+			"year": 2026,
+			"kind": "hardware",
+			"status": "designed",
+			"statusLabel": "designed, not built",
+			"mask": "blue",
+			"stack": [
+				"Teensy 4.1",
+				"C++",
+				"Onshape",
+				"Blender",
+				"control"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/Steady",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Steady"
+				},
+				{
+					"label": "onshape",
+					"url": "https://cad.onshape.com/documents/bdb7c14a6d723ab75184049c/w/bbc527d9ae0d21a2dad8c051/e/2942f8800dd81ea3c4a498f0"
+				}
+			],
+			"body": "a cart on a linear rail, driven by a 12 V motor through a rack and pinion, balancing two hinged arms on top of each other. a Teensy 4.1 will run the control loop at 2 kHz, two time-of-flight sensors find the cart, two AS5600 magnetic encoders read both joints, and a DRV8874 drives the motor.\n\ni made it to get properly good at CAD, and the assembly works: everything fits with zero overlap, and the relations move the way the real thing will. i learned where bearings go, how to mount an encoder in an awkward spot (the second joint), and that real people don't use hex shafts. i printed my own anyway. the design, BOM and wiring are done; it isn't built yet."
+		},
+		{
+			"slug": "spotiplay",
+			"title": "Spotiplay",
+			"tagline": "a little wifi \"now playing\" screen for Spotify",
+			"when": "Apr – Jul 2026",
+			"year": 2026,
+			"kind": "hardware",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "purple",
+			"stack": [
+				"ESP32-C3",
+				"C++",
+				"Onshape",
+				"Spotify API"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/Spotiplay",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Spotiplay"
+				}
+			],
+			"body": "an ESP32-C3 and a 1.8\" TFT in a 3D-printed case. it joins wifi, signs in to Spotify, polls what's playing and draws it, and three Cherry MX switches on top do play, pause and skip. it sits on my desk.\n\ni made it after seeing a Spotify car display, and as a reason to relearn CAD before bigger projects. when Spotify changed their API, i sent a fix for the guide to Hack Club Stasis."
+		},
+		{
+			"slug": "easyrp2040",
+			"title": "EasyRP2040",
+			"tagline": "my own Pico-format RP2040 board, with debug LEDs and an IMU",
+			"when": "Oct 2025",
+			"year": 2025,
+			"kind": "hardware",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "blue",
+			"stack": [
+				"RP2040",
+				"KiCad",
+				"JLCPCB"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/EasyRP2040",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/EasyRP2040"
+				}
+			],
+			"body": "a Raspberry Pi Pico-sized RP2040 board with USB-C, debug LEDs and a 9-DOF IMU, and silkscreen art i drew in Excalidraw. my first full routing job taught me to place ICs first, then capacitors, and to keep vias and back-side signals down. JLC assembled most of it; the IMU was standard-only and would've added about $50, so i placed that one myself with solder paste and a hot air gun."
+		},
+		{
+			"slug": "fume-extractor",
+			"title": "Fume-Extractor",
+			"tagline": "pulls solder fumes away from my face, quietly",
+			"when": "May – Sep 2026",
+			"year": 2026,
+			"kind": "hardware",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "yellow",
+			"stack": [
+				"ESP32-S3",
+				"Onshape",
+				"PWM"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/Fume-Extractor",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Fume-Extractor"
+				}
+			],
+			"body": "i kept breathing in solder fumes, which probably wasn't great for my brain cells. so: a Noctua fan and a carbon filter in a 3D-printed case, with an ESP32-S3 setting the fan speed over PWM, all off a 12 V barrel jack. it was also a simple project to practise CAD on, with heat-set inserts and a back plate that closes it up."
+		},
+		{
+			"slug": "boreas",
+			"title": "Boreas",
+			"tagline": "an STM32F7 flight computer for a rocket",
+			"when": "Jun – Aug 2026",
+			"year": 2026,
+			"kind": "hardware",
+			"status": "designed",
+			"statusLabel": "designed, not built",
+			"mask": "white",
+			"stack": [
+				"STM32F7",
+				"bare-metal C",
+				"KiCad",
+				"Make"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/Boreas",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Boreas"
+				}
+			],
+			"body": "a flight computer for my first rocket, which i'd like to get past 1 km. an STM32F7 reads an IMU, a barometer and a magnetometer and logs it all to an SD card, so i can graph each flight and work out what to fix. it has three servo outputs, a buzzer, LEDs, buttons and LiPo charging over USB-C.\n\nthe firmware is register-level C with my own Makefile, flashed over ST-Link with `make flash`. it was mostly practice at reading datasheets and routing a dense board, and a step towards my own drone flight controller."
+		},
+		{
+			"slug": "mini-air",
+			"title": "Mini-Air",
+			"tagline": "an analog FPV drone on my own Betaflight flight controller",
+			"when": "Jun – Aug 2026",
+			"year": 2026,
+			"kind": "hardware",
+			"status": "designed",
+			"statusLabel": "designed, not built",
+			"mask": "green",
+			"stack": [
+				"Betaflight",
+				"Bluejay",
+				"ELRS",
+				"KiCad",
+				"Onshape"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/Mini-Air",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Mini-Air"
+				}
+			],
+			"body": "the drone i actually want to fly. the flight controller is mine: it runs Betaflight and has an on-board OSD, IMU, barometer and SPI flash. around it go a Bluejay ESC, ELRS radio, GPS and an analog camera on a 2S battery with 2-inch props, about 124 g, built for speed. everything is analog to keep latency low (and because 480p FPV footage with an OSD looks great). the VTX, GPS, receiver and ESC are all modular, so any of them can be swapped.\n\nit's Minicopter's lessons, done properly."
+		},
+		{
+			"slug": "toparm",
+			"title": "TopArm",
+			"tagline": "a robot arm on a top hat",
+			"when": "Oct 2025",
+			"year": 2025,
+			"kind": "hardware",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "red",
+			"stack": [
+				"Arduino",
+				"PCA9685",
+				"SG90 servos",
+				"3D printing"
+			],
+			"with": [],
+			"events": [
+				"alleyway"
+			],
+			"award": "3rd in the Hackaday Supercon 2025 costume contest",
+			"repo": "https://github.com/darshg321/TopArm",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/TopArm"
+				}
+			],
+			"body": "a 3D-printed arm on micro servos, strapped to a top hat and driven with a joystick, so you can grab things off the top shelf, wave at friends, or just gesture dramatically while you talk. an Arduino and a PCA9685 servo driver run it, and LEDs add some bling.\n\ni wore it at Hackaday Supercon 2025. it took 3rd in the costume contest and won me a $5,000 lab-grade waveform generator, and it got a lot of serious hardware people (including Framework's CEO) to stop and talk."
+		},
+		{
+			"slug": "aura-generator",
+			"title": "Aura Generator",
+			"tagline": "a constant cloud of mist that follows you around",
+			"when": "Sep – Oct 2025",
+			"year": 2025,
+			"kind": "hardware",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "purple",
+			"stack": [
+				"ultrasonic atomizers",
+				"USB-C power"
+			],
+			"with": [],
+			"events": [
+				"fallout",
+				"alleyway"
+			],
+			"award": "",
+			"repo": "https://github.com/darshg321/aura-generator",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/aura-generator"
+				}
+			],
+			"body": "stage-smoke energy for everyday life. USB-C ultrasonic atomizers vibrate hundreds of thousands of times a second under water to make mist, fed by cotton wicks from a bottle and powered from a battery bank. it was meant for my shoe, but tape and walking don't mix, so it lived on my hat. dye the water and the mist changes colour.\n\ni brought it to Supercon, and later gave a talk about it to 150 people at the Fallout kickoff."
+		},
+		{
+			"slug": "cs-club-site",
+			"title": "CS Club Site",
+			"tagline": "cs.fraserhacks.dev: our club, its prizes, and everything members build",
+			"when": "Oct 2026 – now",
+			"year": 2026,
+			"kind": "software",
+			"status": "shipped",
+			"statusLabel": "shipped",
+			"mask": "red",
+			"stack": [
+				"SvelteKit",
+				"Supabase",
+				"Vercel"
+			],
+			"with": [],
+			"events": [
+				"csclub"
+			],
+			"award": "",
+			"repo": "https://github.com/FraserHacks/csclub",
+			"links": [
+				{
+					"label": "cs.fraserhacks.dev",
+					"url": "https://cs.fraserhacks.dev"
+				},
+				{
+					"label": "github",
+					"url": "https://github.com/FraserHacks/csclub"
+				}
+			],
+			"body": "the site for the Fraser Comp Sci Club, which i run. it's where people sign up, see the trinket of the week and the prizes, and find the contests we go after: the CCC, Peel Science Fair and Peel Skills, plus the hackathons we go to as a group.\n\nevery meeting gets its own page with the whole lesson on it (the LED heart speed build, the Arduino challenges, the Smash tourney with live sign-ups and a bracket), and anything a member builds goes up in the project directory with their name on it, so they can point to it on applications. there's an admin side for editing projects and running brackets, backed by Supabase."
+		},
+		{
+			"slug": "productite",
+			"title": "Productite",
+			"tagline": "a student productivity app, on the App Store",
+			"when": "Jul – Dec 2024",
+			"year": 2024,
+			"kind": "software",
+			"status": "shipped",
+			"statusLabel": "shipped",
+			"mask": "white",
+			"stack": [
+				"React Native",
+				"Expo",
+				"TypeScript"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/Productite",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Productite"
+				},
+				{
+					"label": "cider PR",
+					"url": "https://github.com/hackclub/cider/pull/64"
+				}
+			],
+			"body": "a to-do list, a daily diary, goals and a time tracker with charts of where your day went. i built it in React Native with Expo and took it all the way through App Store submission. it got me an Apple developer licence from Hack Club Cider, $150+ in grants, and a spot in the Hack Club Arcade showcase."
+		},
+		{
+			"slug": "jollipop",
+			"title": "Jollipop",
+			"tagline": "a motorised propeller hat and a comically oversized lollipop",
+			"when": "Jul 2026",
+			"year": 2026,
+			"kind": "hardware",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "yellow",
+			"stack": [
+				"XIAO RP2040",
+				"DC motor",
+				"LED strips"
+			],
+			"with": [
+				"@penguinissus"
+			],
+			"events": [
+				"fallout"
+			],
+			"award": "funniest project at Fallout",
+			"repo": "https://github.com/penguinissus/jollynator",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/penguinissus/jollynator"
+				}
+			],
+			"body": "become jolly today. a XIAO RP2040 spins the propeller, runs rainbow LED strips and plays a tune on a speaker, off AA batteries through a buck converter. life is all sunshine and rainbows. made at Fallout in Shenzhen."
+		},
+		{
+			"slug": "keychain-tris",
+			"title": "Keychain-tris",
+			"tagline": "Tetris on a keychain, played by tilting it",
+			"when": "Jun 2026",
+			"year": 2026,
+			"kind": "hardware",
+			"status": "designed",
+			"statusLabel": "designed, not built",
+			"mask": "yellow",
+			"stack": [
+				"ESP32-C3",
+				"MPU6050",
+				"KiCad"
+			],
+			"with": [],
+			"events": [
+				"fallout"
+			],
+			"award": "",
+			"repo": "https://github.com/darshg321/Keychain-tris",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Keychain-tris"
+				}
+			],
+			"body": "a speedrun before the end of Fallout: an ESP32-C3 board with an OLED, LiPo charging, a 3.3 V LDO and an MPU6050. you play Tetris by moving the whole keychain: slide it right to move right, drop it to drop. six axes means plenty of controls."
+		},
+		{
+			"slug": "whale-badge",
+			"title": "Whale Badge",
+			"tagline": "a whale-shaped NFC badge with an LED eye",
+			"when": "Jul 2026",
+			"year": 2026,
+			"kind": "hardware",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "white",
+			"stack": [
+				"NT3H2111 NFC",
+				"KiCad"
+			],
+			"with": [],
+			"events": [
+				"fallout"
+			],
+			"award": "",
+			"repo": "https://github.com/darshg321/fallout-badge",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/fallout-badge"
+				}
+			],
+			"body": "a small whale PCB for Fallout. tap a phone on it and it opens whatever link you've written to it, and it has an LED for the eye. it's also the logo of this site."
+		},
+		{
+			"slug": "fancyboard",
+			"title": "FancyBoard",
+			"tagline": "a hot-swappable, low-profile wireless keyboard",
+			"when": "Jul – Oct 2025",
+			"year": 2025,
+			"kind": "hardware",
+			"status": "designed",
+			"statusLabel": "designed, not built",
+			"mask": "black",
+			"stack": [
+				"nice!nano",
+				"BlueMicro",
+				"KiCad",
+				"Fusion 360"
+			],
+			"with": [],
+			"events": [
+				"undercity"
+			],
+			"award": "",
+			"repo": "https://github.com/darshg321/FancyBoard",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/FancyBoard"
+				}
+			],
+			"body": "a full low-profile mechanical keyboard with hot-swap sockets, Bluetooth on a nice!nano, a screen and a plate with art on it. i started on ZMK, found it lowkey gibberish, and switched to BlueMicro. KiCad doesn't export stretched keys properly, so i placed those by hand (it's sooo slow). it was my other Highway submission."
+		},
+		{
+			"slug": "hackpad",
+			"title": "Darsh's Hackpad",
+			"tagline": "a 4-key macropad for playing Tetris",
+			"when": "Jun 2025",
+			"year": 2025,
+			"kind": "hardware",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "green",
+			"stack": [
+				"XIAO RP2040",
+				"KMK",
+				"KiCad"
+			],
+			"with": [],
+			"events": [
+				"undercity"
+			],
+			"award": "",
+			"repo": "https://github.com/darshg321/darshs-hackpad",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/darshs-hackpad"
+				}
+			],
+			"body": "one of my first PCBs, made for Hack Club's Hackpad program: four keys on a XIAO RP2040 in a 3D-printed case, with KMK firmware mapping them to the arrow keys for Tetris. it's where the whole hardware thing started."
+		},
+		{
+			"slug": "crane-advantage",
+			"title": "Crane Advantage",
+			"tagline": "a crane that shows mechanical advantage with real numbers",
+			"when": "May – Jun 2026",
+			"year": 2026,
+			"kind": "hardware",
+			"status": "designed",
+			"statusLabel": "designed, not built",
+			"mask": "red",
+			"stack": [
+				"ESP32-S3",
+				"Onshape",
+				"planetary gearbox"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/Crane-Advantage",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Crane-Advantage"
+				}
+			],
+			"body": "a 12 V motor lifts a load through my own 10:1 planetary gearbox and a pulley system. force sensors under the motor lever and in the basket, plus an accelerometer, put the input force, the load and its acceleration on an OLED, so you can watch the motor push with less force than the weight it's lifting. made to learn bearings, pulleys and gears."
+		},
+		{
+			"slug": "deadline",
+			"title": "Deadline",
+			"tagline": "a guillotine that creeps towards a stickman as a deadline gets closer",
+			"when": "Aug 2026",
+			"year": 2026,
+			"kind": "hardware",
+			"status": "designed",
+			"statusLabel": "designed, not built",
+			"mask": "black",
+			"stack": [
+				"ESP32-S3",
+				"NEMA17",
+				"AS5600",
+				"Google Calendar API"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/Deadline",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Deadline"
+				}
+			],
+			"body": "putting the dead in deadline. an ESP32-S3 reads my next Google Calendar event, and a NEMA17 on a ball screw moves a little guillotine towards a stickman: 0% of the way at the start, touching him when the time's up. there's no limit switch: it homes by running into the hard stop and catching the stall on the AS5600, which also watches for lost steps."
+		},
+		{
+			"slug": "mushu",
+			"title": "Mushu",
+			"tagline": "FRC team 1325's 2025 robot",
+			"when": "2025 season",
+			"year": 2025,
+			"kind": "hardware",
+			"status": "built",
+			"statusLabel": "built",
+			"mask": "black",
+			"stack": [
+				"Java",
+				"WPILib",
+				"Limelight",
+				"PID"
+			],
+			"with": [
+				"FRC Team 1325 Inverse Paradox"
+			],
+			"events": [],
+			"award": "top 3% of 3,600+ teams worldwide",
+			"repo": "",
+			"links": [],
+			"body": "a team robot, so the credit goes to all of 1325. my part was controls: i programmed the elevator and claw with closed-loop PID, and the Limelight pipeline that finds game pieces. Mushu ranked #13 of 130 in Ontario, and the team finished the season in the top 3% worldwide. more about the team on the [about page](/about#frc)."
+		},
+		{
+			"slug": "guessrgo",
+			"title": "GuessrGo",
+			"tagline": "a geo-guessing app, made at Hack the North 2025",
+			"when": "Sep 2025",
+			"year": 2025,
+			"kind": "software",
+			"status": "demoed",
+			"statusLabel": "demoed at a hackathon",
+			"mask": "blue",
+			"stack": [
+				"React Native",
+				"Expo"
+			],
+			"with": [
+				"James Lian"
+			],
+			"events": [
+				"hackthenorth"
+			],
+			"award": "",
+			"repo": "https://github.com/James-Lian/GuessrGo",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/James-Lian/GuessrGo"
+				}
+			],
+			"body": "a geo-guessing game in Expo and React Native, made with James Lian over a weekend at Hack the North. i wrote the geo side (23 commits' worth)."
+		},
+		{
+			"slug": "diarymuse",
+			"title": "DiaryMuse",
+			"tagline": "turns diary entries into songs you can share",
+			"when": "Jan 2025",
+			"year": 2025,
+			"kind": "software",
+			"status": "demoed",
+			"statusLabel": "demoed at a hackathon",
+			"mask": "purple",
+			"stack": [
+				"TypeScript",
+				"Python"
+			],
+			"with": [
+				"Jason Chou"
+			],
+			"events": [
+				"uottahack"
+			],
+			"award": "",
+			"repo": "https://github.com/JasonChou0105/DiaryMuse",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/JasonChou0105/DiaryMuse"
+				}
+			],
+			"body": "our uOttaHack 7 project. write about your day and DiaryMuse turns the entry into a personal song, then you can share it with friends on a little social feed, where people like, comment and remix each other's songs."
+		},
+		{
+			"slug": "bench",
+			"title": "Bench",
+			"tagline": "tracks every part and tool i have at home",
+			"when": "Jul 2026",
+			"year": 2026,
+			"kind": "software",
+			"status": "shipped",
+			"statusLabel": "shipped",
+			"mask": "green",
+			"stack": [
+				"TypeScript",
+				"Firestore",
+				"Google sign-in"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/bench",
+			"links": [
+				{
+					"label": "hardwarebench.vercel.app",
+					"url": "https://hardwarebench.vercel.app"
+				},
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/bench"
+				}
+			],
+			"body": "a personal hardware inventory, so i always know what i have and what i need next. paste a screenshot of a store page and it fills in the part and its specs; it can also suggest projects from what's in the drawers. it syncs across devices through Firestore."
+		},
+		{
+			"slug": "submerge",
+			"title": "Submerge",
+			"tagline": "a late-night koi pond theme for KDE Plasma",
+			"when": "Oct 2026",
+			"year": 2026,
+			"kind": "software",
+			"status": "shipped",
+			"statusLabel": "shipped",
+			"mask": "blue",
+			"stack": [
+				"QML",
+				"Qt 5",
+				"KDE Plasma"
+			],
+			"with": [
+				"@flyingf15h"
+			],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/flyingf15h/submerge",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/flyingf15h/submerge"
+				}
+			],
+			"body": "@flyingf15h made a live koi pond wallpaper and HUD for Plasma 6, and i ported it to Plasma 5.27 for my laptop. then i kept going: power and GPU readouts, a battery readout, a lock and sign-in screen, pause modes and a big cut in GPU use."
+		},
+		{
+			"slug": "win-convert",
+			"title": "Win-Convert",
+			"tagline": "right-click any image in Windows to convert or compress it",
+			"when": "Aug 2026",
+			"year": 2026,
+			"kind": "software",
+			"status": "shipped",
+			"statusLabel": "shipped",
+			"mask": "white",
+			"stack": [
+				"C#",
+				"PowerShell"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/Win-Convert",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Win-Convert"
+				}
+			],
+			"body": "a right-click menu for Explorer that converts, compresses or optimises images between PNG, JPG, WEBP, HEIC, PDF and SVG. all six work both ways."
+		},
+		{
+			"slug": "claudle",
+			"title": "Claudle",
+			"tagline": "DM a Discord bot to drive my PC with Claude Code",
+			"when": "Aug – Oct 2026",
+			"year": 2026,
+			"kind": "software",
+			"status": "shipped",
+			"statusLabel": "shipped",
+			"mask": "black",
+			"stack": [
+				"Python",
+				"discord.py",
+				"Claude Code"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/claudle",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/claudle"
+				}
+			],
+			"body": "send it a message and it runs it as a Claude Code prompt in a persistent session on my Windows PC, streaming tool calls back and posting a screenshot when it's done. there are direct commands for the shell, screen, mouse and keyboard, files, processes and power too. only my account can talk to it; everyone else is ignored before a byte is parsed."
+		},
+		{
+			"slug": "face-recognizer",
+			"title": "Face-Recognizer",
+			"tagline": "recognises faces in a live video stream from a folder of photos",
+			"when": "2023, updated 2026",
+			"year": 2023,
+			"kind": "software",
+			"status": "shipped",
+			"statusLabel": "shipped",
+			"mask": "blue",
+			"stack": [
+				"Python",
+				"MTCNN",
+				"PyQt5"
+			],
+			"with": [],
+			"events": [],
+			"award": "",
+			"repo": "https://github.com/darshg321/Face-Recognizer",
+			"links": [
+				{
+					"label": "github",
+					"url": "https://github.com/darshg321/Face-Recognizer"
+				}
+			],
+			"body": "MTCNN finds faces in each frame, then face embeddings are compared against a folder of known people, with adjustable confidence and match thresholds. i first wrote it in 2023 and came back in 2026 to swap tkinter for a threaded PyQt5 video stream with live settings, plus a slideshow on how face recognition works and where it's biased."
+		}
+	],
+	"events": [
+		{
+			"slug": "fraserhacks",
+			"name": "FraserHacks",
+			"kind": "ran",
+			"role": "co-lead",
+			"when": "2024 – now",
+			"place": "John Fraser SS, Mississauga",
+			"theme": "fraserhacks",
+			"url": "https://fraserhacks.dev",
+			"summary": "Mississauga's largest high school hackathon. i co-lead it.",
+			"stats": [
+				{
+					"n": "83",
+					"label": "hackers in 2026"
+				},
+				{
+					"n": "28",
+					"label": "projects shipped"
+				},
+				{
+					"n": "98%",
+					"label": "submission rate"
+				},
+				{
+					"n": "10",
+					"label": "person exec team"
+				}
+			],
+			"award": "",
+			"projects": [
+				"fraserhacks-sites"
+			]
+		},
+		{
+			"slug": "dayoneof",
+			"name": "Dayoneof",
+			"kind": "ran",
+			"role": "host",
+			"when": "Sep 2026 – now",
+			"place": "Hack Club, online",
+			"theme": "dayoneof",
+			"url": "https://dayoneof.hackclub.com",
+			"summary": "a Hack Club program: post a short video every day for a month.",
+			"stats": [],
+			"award": "",
+			"projects": [
+				"dayoneof"
+			]
+		},
+		{
+			"slug": "offscript",
+			"name": "Off-Script",
+			"kind": "ran",
+			"role": "host",
+			"when": "Aug – Sep 2026",
+			"place": "University of Waterloo, Waterloo Tech Week",
+			"theme": "offscript",
+			"url": "https://wygo.world/off-script-ai-hackathon",
+			"summary": "a technical showcase i hosted at UWaterloo as part of Waterloo Tech Week, as a high schooler.",
+			"stats": [
+				{
+					"n": "120+",
+					"label": "RSVPs"
+				},
+				{
+					"n": "50+",
+					"label": "came"
+				},
+				{
+					"n": "10+",
+					"label": "projects demoed"
+				}
+			],
+			"award": "",
+			"projects": [
+				"icey",
+				"bing-bang-dream-adventure"
+			]
+		},
+		{
+			"slug": "csclub",
+			"name": "Fraser Comp Sci Club",
+			"kind": "ran",
+			"role": "president",
+			"when": "Oct 2023 – now",
+			"place": "John Fraser SS, Thursdays at lunch, room 183",
+			"theme": "csclub",
+			"url": "https://cs.fraserhacks.dev",
+			"summary": "build cool stuff, win prizes, compete. Thursdays at lunch.",
+			"stats": [
+				{
+					"n": "20+",
+					"label": "members every week"
+				},
+				{
+					"n": "1",
+					"label": "trinket every meeting"
+				},
+				{
+					"n": "3",
+					"label": "competitions we train for"
+				}
+			],
+			"award": "",
+			"projects": [
+				"cs-club-site",
+				"arcadetris"
+			]
+		},
+		{
+			"slug": "polaris",
+			"name": "Horizons Polaris",
+			"kind": "went",
+			"role": "",
+			"when": "Aug 7–9, 2026",
+			"place": "Toronto",
+			"theme": "polaris",
+			"url": "https://horizons.hackclub.com",
+			"summary": "one of Hack Club's six Horizons hackathons, \"in the heart of Canada\".",
+			"stats": [],
+			"award": "2nd place",
+			"projects": [
+				"bing-bang-dream-adventure",
+				"ultisense"
+			]
+		},
+		{
+			"slug": "outpost",
+			"name": "Outpost",
+			"kind": "went",
+			"role": "",
+			"when": "Jul 14–20, 2026",
+			"place": "San Francisco + Open Sauce",
+			"theme": "outpost",
+			"url": "https://outpost.hackclub.com",
+			"summary": "a 4-day Hack Club hardware hackathon, then two days showing projects at Open Sauce.",
+			"stats": [],
+			"award": "",
+			"projects": []
+		},
+		{
+			"slug": "fallout",
+			"name": "Fallout",
+			"kind": "went",
+			"role": "",
+			"when": "Jul 1–7, 2026",
+			"place": "Shenzhen, China",
+			"theme": "fallout",
+			"url": "https://fallout.hackclub.com",
+			"summary": "build hardware for free, then go to Shenzhen. a week in the hardware capital of the world.",
+			"stats": [],
+			"award": "funniest project",
+			"projects": [
+				"jollipop",
+				"keychain-tris",
+				"whale-badge",
+				"aura-generator"
+			]
+		},
+		{
+			"slug": "alleyway",
+			"name": "Alleyway × Hackaday Supercon",
+			"kind": "went",
+			"role": "",
+			"when": "Nov 2025",
+			"place": "Pasadena, California",
+			"theme": "alleyway",
+			"url": "https://hackaday.io/superconference/",
+			"summary": "Hack Club picked me to bring projects to Hackaday Supercon.",
+			"stats": [],
+			"award": "3rd, costume contest ($5k lab instrument)",
+			"projects": [
+				"toparm",
+				"aura-generator"
+			]
+		},
+		{
+			"slug": "hackthenorth",
+			"name": "Hack the North 2025",
+			"kind": "went",
+			"role": "",
+			"when": "Sep 2025",
+			"place": "University of Waterloo",
+			"theme": "hackthenorth",
+			"url": "https://hackthenorth.com",
+			"summary": "Canada's biggest hackathon.",
+			"stats": [
+				{
+					"n": "1000+",
+					"label": "hackers"
+				},
+				{
+					"n": "36",
+					"label": "hours"
+				}
+			],
+			"award": "",
+			"projects": [
+				"guessrgo"
+			]
+		},
+		{
+			"slug": "undercity",
+			"name": "Undercity",
+			"kind": "went",
+			"role": "",
+			"when": "Jul 11–14, 2025",
+			"place": "GitHub HQ, San Francisco",
+			"theme": "undercity",
+			"url": "https://undercity.hackclub.com",
+			"summary": "Hack Club's 4-day hardware hackathon at GitHub HQ.",
+			"stats": [],
+			"award": "",
+			"projects": [
+				"arcadetris",
+				"minicopter",
+				"fancyboard",
+				"hackpad"
+			]
+		},
+		{
+			"slug": "uottahack",
+			"name": "uOttaHack 7",
+			"kind": "went",
+			"role": "",
+			"when": "Jan 2025",
+			"place": "University of Ottawa",
+			"theme": "uottahack",
+			"url": "https://uottahack.ca",
+			"summary": "a weekend hackathon in Ottawa.",
+			"stats": [],
+			"award": "",
+			"projects": [
+				"diarymuse"
+			]
+		}
+	],
+	"otherEvents": [
+		{
+			"name": "UTMUN",
+			"note": "Model UN at U of T",
+			"when": "2025 – 26"
+		},
+		{
+			"name": "KingsMUN",
+			"note": "Model UN",
+			"when": "2025 – 26"
+		},
+		{
+			"name": "UofT Science Unlimited",
+			"note": "summer camp; finalist with an AI garbage sorter",
+			"when": "2025"
+		}
+	],
+	"bench": [
+		{
+			"title": "KiCad",
+			"note": "every PCB on this site, from the hackpad to Icey",
+			"when": "since 2025"
+		},
+		{
+			"title": "Onshape",
+			"note": "CAD for Steady, Crane Advantage, Deadline, Fume-Extractor and Spotiplay",
+			"when": "since 2026"
+		},
+		{
+			"title": "Fusion 360 + SolidWorks",
+			"note": "before Onshape: FancyBoard, Minicopter and my first cases",
+			"when": "2025"
+		},
+		{
+			"title": "JLCPCB + PCBWay",
+			"note": "fab and assembly. PCBWay made Icey",
+			"when": "since 2025"
+		},
+		{
+			"title": "3D printer",
+			"note": "every case and mount, TopArm, and my own (very fake) hex shafts",
+			"when": "always on"
+		},
+		{
+			"title": "solder paste + hot air",
+			"note": "for the parts the fab won't place, like EasyRP2040's IMU",
+			"when": "since 2025"
+		},
+		{
+			"title": "logic analyzer",
+			"note": "what finally got Ultisense talking over I²C",
+			"when": "since 2026"
+		},
+		{
+			"title": "bench supply + multimeter",
+			"note": "how Minicopter got its 3.3 V rail back",
+			"when": "since 2025"
+		},
+		{
+			"title": "waveform generator",
+			"note": "the $5,000 one TopArm won at Supercon",
+			"when": "since 2025"
+		}
+	],
+	"early": [
+		{
+			"title": "HelpConnect",
+			"note": "a mutual-aid platform that matches people who want to help with people who need it",
+			"when": "2023",
+			"url": "https://github.com/darshg321/HelpConnect"
+		},
+		{
+			"title": "Sprig: Timing",
+			"note": "a game merged into Hack Club Sprig",
+			"when": "2024",
+			"url": "https://github.com/hackclub/sprig/pull/1824"
+		},
+		{
+			"title": "ChatGPT Voice Assistant",
+			"note": "Whisper speech-to-text into ChatGPT, deployed on Google App Engine",
+			"when": "2023",
+			"url": "https://github.com/darshg321/ChatGPT-Voice-Assistant"
+		},
+		{
+			"title": "ChatGPT-Explain-Linux",
+			"note": "a CLI that explains Linux commands",
+			"when": "2023",
+			"url": "https://github.com/darshg321/ChatGPT-Explain-Linux"
+		},
+		{
+			"title": "Dino Game",
+			"note": "Chrome's dinosaur game in JavaScript, my first GitHub Page",
+			"when": "2023",
+			"url": "https://darshg321.github.io/"
+		},
+		{
+			"title": "Undyne Simulator",
+			"note": "Undyne's boss fight from Undertale, with random attacks",
+			"when": "2022",
+			"url": "https://github.com/darshg321/Undyne-Simulator"
+		},
+		{
+			"title": "Flappy Bird, Rock Paper Scissors and Apple Catching",
+			"note": "my first Python games, one with a high-score database",
+			"when": "2022"
+		},
+		{
+			"title": "Weather and Date Apps",
+			"note": "a C# console weather app and a web page with the day",
+			"when": "2023"
+		}
+	],
+	"contact": {
+		"email": "darshg321@gmail.com",
+		"links": [
+			{
+				"label": "github",
+				"handle": "@darshg321",
+				"url": "https://github.com/darshg321"
+			},
+			{
+				"label": "instagram",
+				"handle": "@darsh.builds",
+				"url": "https://www.instagram.com/darsh.builds/"
+			},
+			{
+				"label": "linkedin",
+				"handle": "in/darshg321",
+				"url": "https://www.linkedin.com/in/darshg321"
+			}
+		]
+	},
+	"roles": [
+		{
+			"title": "co-lead",
+			"org": "FraserHacks",
+			"when": "2024 – now",
+			"points": [
+				"co-lead fundraising, logistics and operations with a 10-person exec team",
+				"got sponsorship from Rotary and AP from zero contacts, and handle merch suppliers, judges and workshops",
+				"built the 2024 check-in system (React, MongoDB, Google Cloud): 100+ live check-ins, no downtime",
+				"mentor teams from idea to live demo; 2026 shipped 28 projects at a 98% submission rate"
+			],
+			"mask": "purple"
+		},
+		{
+			"title": "host",
+			"org": "Dayoneof, Hack Club",
+			"when": "Sep 2026 – now",
+			"points": [
+				"run a Hack Club program for teens to post a short video every day for a month",
+				"built the site, streak tracking and Slack bot in SvelteKit, Airtable and Hack Club Auth"
+			],
+			"mask": "yellow"
+		},
+		{
+			"title": "controls engineering lead",
+			"org": "FRC Team 1325 Inverse Paradox",
+			"when": "Sep 2023 – May 2026",
+			"points": [
+				"3rd in Canada of 120+ teams (2026); top 3% worldwide of 3,600+ (2024 and 2025)",
+				"built a game-piece detection pipeline in Java on a Limelight, with filtering for changing arena light",
+				"closed-loop PID on the elevator and claw, checked against match logs"
+			],
+			"mask": "black"
+		},
+		{
+			"title": "president",
+			"org": "Fraser Comp Sci Club",
+			"when": "Oct 2023 – now",
+			"points": [
+				"run a weekly build club for 20+ students: LED speed builds, Arduino, soldering, PCBs",
+				"train members for the CCC, Peel Science Fair and Peel Skills, and built the club site"
+			],
+			"mask": "red"
+		},
+		{
+			"title": "host",
+			"org": "Off-Script",
+			"when": "Aug – Sep 2026",
+			"points": [
+				"hosted a technical showcase at the University of Waterloo during Waterloo Tech Week",
+				"120+ RSVPs, 50+ attendees, 10+ live demos of FPGA, embedded and hardware/software projects"
+			],
+			"mask": "white"
+		},
+		{
+			"title": "app developer",
+			"org": "Productite",
+			"when": "Jul – Sep 2024",
+			"points": [
+				"shipped a student productivity app to the iOS App Store; $150+ in grants and a Hack Club Arcade feature"
+			],
+			"mask": "blue"
+		},
+		{
+			"title": "volunteer",
+			"org": "Achēv / Youth2Action",
+			"when": "Jul 2023 – Apr 2024",
+			"points": [
+				"outreach for the Y2A academic fair: contacted schools and organisations",
+				"MC for the University of Windsor Law panel: 100+ participants, 1,800 registered",
+				"helped organise a political town hall that drew 80+ students",
+				"graduated the program with 180+ volunteer hours"
+			],
+			"mask": "green"
+		}
+	],
+	"frc": {
+		"team": "FRC Team 1325 Inverse Paradox",
+		"body": "i joined 1325 in grade 9 on the programming subteam, writing the intake subsystem and parts of the engineering notebook. in grade 10 i worked as human player and pit crew and programmed the elevator and the rest of the controls on Mushu, and i've since coded the shooter. i led controls engineering and taught an 11-lesson controls curriculum to the junior members: command-based code, PID tuning, and getting from a sensor to an actuator.\n\ni also helped a bunch of local teams with their code (10167, 4015 and 5031 among them), and helped a lot with our alphabot.",
+		"results": [
+			"3rd in Canada of 120+ teams (2026)",
+			"top 3% worldwide of 3,600+ teams (2024 and 2025)",
+			"World Championship playoffs",
+			"2× Excellence in Engineering award",
+			"Mushu: #13 of 130 in Ontario (2025)"
+		]
+	},
+	"awards": [
+		{
+			"what": "Outstanding High School Student Science Award",
+			"who": "University of Toronto, Andre Simpson Lab",
+			"when": "2025"
+		},
+		{
+			"what": "3rd place, costume contest ($5,000 lab instrument)",
+			"who": "Hackaday Supercon, for TopArm",
+			"when": "2025"
+		},
+		{
+			"what": "2nd place",
+			"who": "Horizons Polaris, for bing bang dream adventure",
+			"when": "2026"
+		},
+		{
+			"what": "funniest project",
+			"who": "Fallout, for Jollipop",
+			"when": "2026"
+		},
+		{
+			"what": "OSHWA open source hardware certification",
+			"who": "for Icey (CA000078)",
+			"when": "2026"
+		},
+		{
+			"what": "silver medal",
+			"who": "Waterloo Junior FLC",
+			"when": "2025"
+		},
+		{
+			"what": "finalist",
+			"who": "UofT Science Unlimited, with an AI garbage sorter",
+			"when": "2025"
+		},
+		{
+			"what": "Hack Club Arcade showcase + Cider grant",
+			"who": "for Productite",
+			"when": "2024"
+		}
+	],
+	"offline": [
+		{
+			"what": "junior rugby 7s",
+			"note": "2nd at ROPSSAA"
+		},
+		{
+			"what": "badminton",
+			"note": "JFSS team, and a lot of it outside school"
+		},
+		{
+			"what": "cross country",
+			"note": "grades 8 and 9"
+		},
+		{
+			"what": "cooking",
+			"note": "my crispy pork belly bao got featured in the Cookwell newsletter"
+		},
+		{
+			"what": "Model UN",
+			"note": "UTMUN and KingsMUN"
+		},
+		{
+			"what": "volunteering",
+			"note": "Mississauga Little Aces, Youth2Action"
+		}
+	]
+}

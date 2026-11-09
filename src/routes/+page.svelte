@@ -14,6 +14,19 @@
 		{ slug: 'cs-club-site', note: 'our club, its prizes, and what members build', lang: 'Svelte' }
 	];
 	const built = projects.filter((p) => p.kind !== 'software' && p.status === 'built').length;
+
+	// the site over ssh (term/ in this repo); clicking copies the command
+	const command = 'ssh darsh.app';
+	let note = $state('');
+	async function copy() {
+		try {
+			await navigator.clipboard.writeText(command);
+			note = 'copied! paste it into a terminal';
+		} catch {
+			note = "couldn't copy, type it into a terminal";
+		}
+		setTimeout(() => (note = ''), 3500);
+	}
 </script>
 
 <svelte:head>
@@ -38,11 +51,18 @@
 			lead the <a href={eventUrl('csclub')}>CS Club</a>, and led controls on <a href="/about#frc">FRC team 1325</a>.
 		</p>
 	</div>
-	<div class="cast pfp-wrap">
-		<div class="board white pfp">
-			<img src="/img/cut/badge.webp" alt="my whale-shaped NFC badge" />
-			<span class="silk">whale badge, rev a</span>
-		</div>
+	<div class="cast term-wrap">
+		<button type="button" class="term" onclick={copy} aria-label="copy the command: {command}">
+			<span class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>darsh@home: ~</span></span>
+			<span class="term-body">
+				<span class="term-note"># try it !!</span>
+				<span class="term-line"><span class="prompt">~ $</span> {command}<span class="cursor" aria-hidden="true"></span></span>
+				<span class="term-out">the whole site, in your terminal</span>
+			</span>
+			<span class="term-hint">
+				{note || 'click to copy the command'}
+			</span>
+		</button>
 	</div>
 </section>
 
@@ -118,8 +138,34 @@
 <style>
 	.about { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: center; margin-bottom: 64px; }
 	.about p { max-width: 60ch; margin-bottom: 12px; }
-	.pfp { width: 250px; padding: 30px 26px 16px; rotate: 4deg; }
-	.pfp .silk { display: block; margin-top: 10px; text-align: center; }
+	/* a terminal window, darker than the sky, tilted like a board would be */
+	.term {
+		display: block; width: 300px; rotate: 3deg; text-align: left; cursor: pointer; color: #d5dce6;
+		background: rgba(5, 10, 18, 0.92); border: 1.5px solid rgba(255, 255, 255, 0.18); border-radius: 8px; overflow: hidden;
+		font: 500 15px/1.5 var(--mono);
+	}
+	.term-bar { display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: rgba(255, 255, 255, 0.07); }
+	.term-bar i { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; }
+	.term-bar i:nth-child(2) { background: #febc2e; }
+	.term-bar i:nth-child(3) { background: #28c840; }
+	.term-bar span { margin-left: 8px; font-size: 12px; color: #7d8aa0; }
+	.term-body { display: grid; gap: 4px; padding: 16px 18px 12px; }
+	.term-note { color: #7d8aa0; }
+	.term-line { color: #fff; font-weight: 700; font-size: 17px; white-space: nowrap; }
+	.prompt { color: #46e07c; margin-right: 4px; }
+	.cursor {
+		display: inline-block; width: 0.6em; height: 1.1em; margin-left: 3px; vertical-align: -0.2em;
+		background: var(--yellow); animation: cursor 1.1s steps(1) infinite;
+	}
+	@keyframes cursor { 50% { opacity: 0; } }
+	.term-out { color: #7d8aa0; font-size: 13px; }
+	.term-hint {
+		display: block; padding: 8px 18px 12px; font-size: 12px; color: var(--yellow);
+		border-top: 1px dashed rgba(255, 255, 255, 0.14);
+	}
+	.term:hover { border-color: var(--yellow); }
+	.term:hover .term-line { text-decoration: underline; text-decoration-color: var(--yellow); text-underline-offset: 4px; }
+	@media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
 
 	.live-head { display: grid; grid-template-columns: 2.25fr 0.8fr; gap: 22px; align-items: end; margin-bottom: 16px; }
 	.contact-heading { font-size: 20px; }
@@ -181,8 +227,8 @@
 	}
 	@media (max-width: 640px) {
 		.about { grid-template-columns: 1fr; }
-		.pfp-wrap { order: -1; }
-		.pfp { width: 170px; }
+		.term-wrap { order: -1; }
+		.term { width: 100%; max-width: 300px; rotate: 0deg; }
 		.live { grid-template-columns: 1fr; grid-template-areas: 'a' 'b' 'c' 'd' 'e'; }
 		.repos { grid-template-columns: 1fr; }
 		.row4 { grid-template-columns: 1fr; }
